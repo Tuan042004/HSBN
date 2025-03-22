@@ -97,8 +97,26 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Content Include="image\bacsi.png" />
+    <Content Include="image\benhnhan.png" />
+    <Content Include="image\benhnhan1.png" />
+    <Content Include="image\giuongbenh.png" />
+    <Content Include="image\HSNV.png" />
+    <Content Include="image\HSXV.png" />
+    <Content Include="image\khoa.png" />
     <Content Include="image\login.jpg" />
     <Content Include="image\login1.jpg" />
+    <Content Include="image\Login3.png" />
+    <Content Include="image\Menu.png" />
+    <Content Include="image\Menu2.png" />
+    <Content Include="image\phongbenh.png" />
+    <Content Include="image\QTDT.png" />
+    <Content Include="image\thanhtoan.png" />
+    <Content Include="image\thoat.png" />
+    <Content Include="image\thuoc.png" />
+    <None Include="Resources\Menu2.png" />
+    <None Include="Resources\Menu.png" />
+    <None Include="Resources\Login3.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
