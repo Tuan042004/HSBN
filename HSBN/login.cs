@@ -17,8 +17,7 @@ namespace HSBN
         {
             InitializeComponent();
         }
-
-        private void button1_Click(object sender, EventArgs e)
+        private void button1_Click_1(object sender, EventArgs e)
         {
             using (SqlConnection con = new SqlConnection("Data Source=TUANDEPZAI; Initial Catalog=QuanLyBenhNhan; Integrated Security=True"))
             {
@@ -58,9 +57,10 @@ namespace HSBN
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void button2_Click_1(object sender, EventArgs e)
         {
             Application.Exit();
         }
     }
+    
 }
