@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace HSBN
 {
-    public partial class Form1 : Form
+    public partial class Quatrinhdieutri : Form
     {
-        public Form1()
+        public Quatrinhdieutri()
         {
             InitializeComponent();
         }
