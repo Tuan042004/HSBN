@@ -1,6 +1,6 @@
 ﻿namespace HSBN
 {
-    partial class Form1
+    partial class Thuoc
     {
         /// <summary>
         /// Required designer variable.
@@ -46,15 +46,15 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnTimkiem = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtHotentk = new System.Windows.Forms.TextBox();
-            this.txtMasvtk = new System.Windows.Forms.TextBox();
+            this.txtTenthuoctk = new System.Windows.Forms.TextBox();
+            this.txtMathuoctk = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtDongiatk = new System.Windows.Forms.TextBox();
+            this.txtNsxtk = new System.Windows.Forms.TextBox();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -258,14 +258,14 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.textBox2);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.txtNsxtk);
+            this.groupBox1.Controls.Add(this.txtDongiatk);
             this.groupBox1.Controls.Add(this.button2);
-            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.btnTimkiem);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.txtHotentk);
-            this.groupBox1.Controls.Add(this.txtMasvtk);
+            this.groupBox1.Controls.Add(this.txtTenthuoctk);
+            this.groupBox1.Controls.Add(this.txtMathuoctk);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(19, 17);
@@ -287,15 +287,16 @@
             this.button2.Text = "Xuất Excel";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // btnTimkiem
             // 
-            this.button1.Location = new System.Drawing.Point(674, 15);
-            this.button1.Margin = new System.Windows.Forms.Padding(2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(74, 19);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "Tìm kiếm";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnTimkiem.Location = new System.Drawing.Point(674, 15);
+            this.btnTimkiem.Margin = new System.Windows.Forms.Padding(2);
+            this.btnTimkiem.Name = "btnTimkiem";
+            this.btnTimkiem.Size = new System.Drawing.Size(74, 19);
+            this.btnTimkiem.TabIndex = 8;
+            this.btnTimkiem.Text = "Tìm kiếm";
+            this.btnTimkiem.UseVisualStyleBackColor = true;
+            this.btnTimkiem.Click += new System.EventHandler(this.btnTimkiem_Click);
             // 
             // label4
             // 
@@ -317,21 +318,21 @@
             this.label3.TabIndex = 4;
             this.label3.Text = "Đơn giá:";
             // 
-            // txtHotentk
+            // txtTenthuoctk
             // 
-            this.txtHotentk.Location = new System.Drawing.Point(77, 41);
-            this.txtHotentk.Margin = new System.Windows.Forms.Padding(2);
-            this.txtHotentk.Name = "txtHotentk";
-            this.txtHotentk.Size = new System.Drawing.Size(207, 20);
-            this.txtHotentk.TabIndex = 3;
+            this.txtTenthuoctk.Location = new System.Drawing.Point(77, 41);
+            this.txtTenthuoctk.Margin = new System.Windows.Forms.Padding(2);
+            this.txtTenthuoctk.Name = "txtTenthuoctk";
+            this.txtTenthuoctk.Size = new System.Drawing.Size(207, 20);
+            this.txtTenthuoctk.TabIndex = 3;
             // 
-            // txtMasvtk
+            // txtMathuoctk
             // 
-            this.txtMasvtk.Location = new System.Drawing.Point(77, 18);
-            this.txtMasvtk.Margin = new System.Windows.Forms.Padding(2);
-            this.txtMasvtk.Name = "txtMasvtk";
-            this.txtMasvtk.Size = new System.Drawing.Size(207, 20);
-            this.txtMasvtk.TabIndex = 2;
+            this.txtMathuoctk.Location = new System.Drawing.Point(77, 18);
+            this.txtMathuoctk.Margin = new System.Windows.Forms.Padding(2);
+            this.txtMathuoctk.Name = "txtMathuoctk";
+            this.txtMathuoctk.Size = new System.Drawing.Size(207, 20);
+            this.txtMathuoctk.TabIndex = 2;
             // 
             // label2
             // 
@@ -353,21 +354,21 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Mã thuốc:";
             // 
-            // textBox1
+            // txtDongiatk
             // 
-            this.textBox1.Location = new System.Drawing.Point(419, 18);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(243, 20);
-            this.textBox1.TabIndex = 11;
+            this.txtDongiatk.Location = new System.Drawing.Point(419, 18);
+            this.txtDongiatk.Margin = new System.Windows.Forms.Padding(2);
+            this.txtDongiatk.Name = "txtDongiatk";
+            this.txtDongiatk.Size = new System.Drawing.Size(243, 20);
+            this.txtDongiatk.TabIndex = 11;
             // 
-            // textBox2
+            // txtNsxtk
             // 
-            this.textBox2.Location = new System.Drawing.Point(419, 42);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(243, 20);
-            this.textBox2.TabIndex = 12;
+            this.txtNsxtk.Location = new System.Drawing.Point(419, 42);
+            this.txtNsxtk.Margin = new System.Windows.Forms.Padding(2);
+            this.txtNsxtk.Name = "txtNsxtk";
+            this.txtNsxtk.Size = new System.Drawing.Size(243, 20);
+            this.txtNsxtk.TabIndex = 12;
             // 
             // Column1
             // 
@@ -466,11 +467,11 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnTimkiem;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtHotentk;
-        private System.Windows.Forms.TextBox txtMasvtk;
+        private System.Windows.Forms.TextBox txtTenthuoctk;
+        private System.Windows.Forms.TextBox txtMathuoctk;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
@@ -479,8 +480,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtNsxtk;
+        private System.Windows.Forms.TextBox txtDongiatk;
         private System.Windows.Forms.TextBox txtDongia;
         private System.Windows.Forms.TextBox txtNsx;
     }

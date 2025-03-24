@@ -12,9 +12,9 @@ using System.Windows.Forms;
 
 namespace HSBN
 {
-    public partial class Form1 : Form
+    public partial class Thuoc : Form
     {
-        public Form1()
+        public Thuoc()
         {
             InitializeComponent();
         }
@@ -26,15 +26,16 @@ namespace HSBN
 
         private void xoa()
         {
-            //txtMasv.Text = "";
-            //txtHoten.Text = "";
-            //cboGioitinh.SelectedIndex = 0;
-            //txtDienthoai.Text = "";
-            //txtDiachi.Text = "";
-            //txtMasvtk.Text = "";
-            //txtHotentk.Text = "";
-            //cboGioitinhtk.SelectedIndex = 0;
-            //txtMasv.Enabled = true;
+            txtMathuoc.Text = "";
+            txtTenthuoc.Text = "";
+            txtDonvi.Text = "";
+            txtDongia.Text = "";
+            txtNsx.Text = "";
+            txtMathuoctk.Text = "";
+            txtTenthuoctk.Text = "";
+            txtDongiatk.Text = "";
+            txtNsxtk.Text = "";
+            txtMathuoc.Enabled = true;
         }
         private void load_thuoc()
         {
@@ -107,7 +108,7 @@ namespace HSBN
              "', DonVi = N'" + dv +
              "', DonGia = '" + dg +
              "', HanSuDung = '" + ngay +
-             "', NhaSanXuat = '" + nsx +
+             "', NhaSanXuat = N'" + nsx +
              "' WHERE MaThuoc = '" + ma + "'";
 
             thuvien.insert(sql);
@@ -136,6 +137,22 @@ namespace HSBN
             dateHsd.Value = DateTime.Parse(dataGridView1.Rows[i].Cells[4].Value.ToString());
             txtNsx.Text = dataGridView1.Rows[i].Cells[5].Value.ToString();
             txtMathuoc.Enabled = false;
+        }
+
+        private void btnTimkiem_Click(object sender, EventArgs e)
+        {
+            String ma = txtMathuoctk.Text.Trim();
+            String ten = txtTenthuoctk.Text.Trim();
+            String dg = txtDongiatk.Text.Trim();
+            String nsx = txtNsxtk.Text.Trim();
+
+            string sql = "Select * From Thuoc Where MaThuoc like '%" + ma + "%' and" +
+                " TenThuoc like N'%" + ten + "%' and" +
+                " DonGia like '%" + dg + "%' and" +
+                " NhaSanXuat like N'%" + nsx + "%'";
+
+            thuvien.load(dataGridView1, sql);
+            xoa();
         }
     }
 }

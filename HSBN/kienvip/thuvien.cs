@@ -56,7 +56,7 @@ namespace HSBN
             // bo sung them 1 dong vao vị trí đầu tiên của bảng tb
             DataRow r = tb.NewRow();
             r[cotgiatri] = "";
-            r[cothienthi] = "----------";
+            r[cothienthi] = "Lựa chọn";
             tb.Rows.InsertAt(r, 0);
 
             cbo.DataSource = tb;

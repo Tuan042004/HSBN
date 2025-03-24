@@ -46,11 +46,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="kienvip\Quatrinhdieutri.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="kienvip\Quatrinhdieutri.Designer.cs">
+      <DependentUpon>Quatrinhdieutri.cs</DependentUpon>
+    </Compile>
+    <Compile Include="kienvip\Thuoc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="kienvip\Thuoc.Designer.cs">
+      <DependentUpon>Thuoc.cs</DependentUpon>
     </Compile>
     <Compile Include="login.cs">
       <SubType>Form</SubType>
@@ -66,9 +72,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="thuvien.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="kienvip\thuvien.cs" />
+    <EmbeddedResource Include="kienvip\Quatrinhdieutri.resx">
+      <DependentUpon>Quatrinhdieutri.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="kienvip\Thuoc.resx">
+      <DependentUpon>Thuoc.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="login.resx">
       <DependentUpon>login.cs</DependentUpon>
