@@ -19,7 +19,7 @@ namespace HSBN
         }
         private void button1_Click_1(object sender, EventArgs e)
         {
-            using (SqlConnection con = new SqlConnection("Data Source=TUANDEPZAI; Initial Catalog=QuanLyBenhNhan; Integrated Security=True"))
+            using (SqlConnection con = new SqlConnection("Data Source=YUNO\\SQLEXPRESS;Initial Catalog=QuanLyBenhVien;Integrated Security=True"))
             {
                 try
                 {
