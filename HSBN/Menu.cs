@@ -35,9 +35,15 @@ namespace HSBN
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new Form1());
+            OpenChildForm(new BenhNhan());
             txt1.Text = button1.Text;
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new Menu());
+            txt1.Text = button1.Text;
         }
     }
 }
