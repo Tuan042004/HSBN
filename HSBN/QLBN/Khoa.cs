@@ -40,6 +40,8 @@ namespace HSBN.QLBN
         }
         public void xoatrang()
         {
+            txtTkMK.Clear();
+            txtTKTenKhoa.Clear();
             txtMaKhoa.Clear();
             txtTenKhoa.Clear();
             txtMaKhoa.Focus();
@@ -143,9 +145,41 @@ namespace HSBN.QLBN
         private void btnReset_Click(object sender, EventArgs e)
         {
             xoatrang();
+            txtMaKhoa.ReadOnly = false;
             btnSua.Visible = false;
             btnXoa.Visible = false;
             btnLuu.Visible = true;
+            
+        }
+
+        private void dgvKhoa_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void btnTimKiem_Click(object sender, EventArgs e)
+        {
+            string tim_maKhoa = txtTkMK.Text.Trim();
+            string tim_tenKhoa = txtTKTenKhoa.Text.Trim();
+
+            if (data.con.State == ConnectionState.Closed)
+                data.con.Open();
+
+            string search = "SELECT * FROM Khoa " +
+                            "WHERE MaKhoa LIKE '%" + tim_maKhoa + "%' " +
+                            "AND TenKhoa LIKE N'%" + tim_tenKhoa + "%'";
+
+            SqlCommand cmd = new SqlCommand(search, data.con);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable tb = new DataTable();
+            da.Fill(tb);
+            cmd.Dispose();
+            data.con.Close();
+
+            dgvKhoa.DataSource = tb;
+            dgvKhoa.Refresh();
+            xoatrang();
+
         }
     }
 }

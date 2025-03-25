@@ -46,11 +46,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <Compile Include="HSXV\Hosoxuatvien.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="HSXV\Hosoxuatvien.Designer.cs">
       <DependentUpon>Hosoxuatvien.cs</DependentUpon>
+=======
+    <Compile Include="QLBN\BacSi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QLBN\BacSi.Designer.cs">
+      <DependentUpon>BacSi.cs</DependentUpon>
+>>>>>>> 96598f006d695b14e89ac6d540d61a5be7c3e6b5
     </Compile>
     <Compile Include="QLBN\data.cs" />
     <Compile Include="QLBN\BenhNhan.cs">
@@ -99,6 +107,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="QLBN\BacSi.resx">
+      <DependentUpon>BacSi.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="QLBN\BenhNhan.resx">
       <DependentUpon>BenhNhan.cs</DependentUpon>
     </EmbeddedResource>
