@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using HSBN.HSXV;
 
 namespace HSBN
 {
@@ -42,7 +43,13 @@ namespace HSBN
 
         private void button2_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new Menu());
+            //OpenChildForm(new Menu());
+            //txt1.Text = button1.Text;
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new Hosoxuatvien());
             txt1.Text = button1.Text;
         }
     }

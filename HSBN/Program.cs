@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using HSBN.HSXV;
 namespace HSBN
 {
     internal static class Program
@@ -17,7 +17,7 @@ namespace HSBN
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Khoa());
+            Application.Run(new Menu());
         }
     }
 }
