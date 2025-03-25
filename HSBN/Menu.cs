@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HSBN.QLBN;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -42,8 +43,14 @@ namespace HSBN
 
         private void button2_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new Menu());
-            txt1.Text = button1.Text;
+            OpenChildForm(new Khoa());
+            txt1.Text = button2.Text;
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new BacSi());
+            txt1.Text = button3.Text;
         }
     }
 }

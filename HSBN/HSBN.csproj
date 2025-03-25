@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="QLBN\BacSi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QLBN\BacSi.Designer.cs">
+      <DependentUpon>BacSi.cs</DependentUpon>
+    </Compile>
     <Compile Include="QLBN\data.cs" />
     <Compile Include="QLBN\BenhNhan.cs">
       <SubType>Form</SubType>
@@ -90,6 +96,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="QLBN\BacSi.resx">
+      <DependentUpon>BacSi.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="QLBN\BenhNhan.resx">
       <DependentUpon>BenhNhan.cs</DependentUpon>
     </EmbeddedResource>

@@ -82,7 +82,7 @@ namespace HSBN.QLBN
             // Thêm dòng "--Chọn lớp học--"
             DataRow r = tb.NewRow();
             r[valueMember] = "";
-            r[displayMember] = "--Chọn mã --";
+            r[displayMember] = "--Chọn Khoa --";
             tb.Rows.InsertAt(r, 0);
             cbx.DataSource = tb;
             cbx.DisplayMember = displayMember;
