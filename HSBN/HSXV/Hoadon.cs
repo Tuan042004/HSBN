@@ -22,5 +22,10 @@ namespace HSBN.HSXV
            
 
         }
+
+        private void btnThem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

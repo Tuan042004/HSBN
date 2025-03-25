@@ -50,12 +50,12 @@ namespace HSBN
 
         private void button9_Click(object sender, EventArgs e)
         {
-
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-
+            OpenChildForm(new BacSi());
+            txt1.Text = button3.Text;
         }
     }
 }

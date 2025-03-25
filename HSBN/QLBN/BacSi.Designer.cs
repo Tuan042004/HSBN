@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.grbTimKiem = new System.Windows.Forms.GroupBox();
             this.cbxTkTenKhoa = new System.Windows.Forms.ComboBox();
             this.btnTimKiem = new System.Windows.Forms.Button();
@@ -70,6 +70,8 @@
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnXuatExcel = new System.Windows.Forms.Button();
+            this.btnNhapExcel = new System.Windows.Forms.Button();
             this.grbTimKiem.SuspendLayout();
             this.grbThongTin.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBenhNhan)).BeginInit();
@@ -79,6 +81,8 @@
             // 
             this.grbTimKiem.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.grbTimKiem.Controls.Add(this.btnXuatExcel);
+            this.grbTimKiem.Controls.Add(this.btnNhapExcel);
             this.grbTimKiem.Controls.Add(this.cbxTkTenKhoa);
             this.grbTimKiem.Controls.Add(this.btnTimKiem);
             this.grbTimKiem.Controls.Add(this.cbxTkGioiTinh);
@@ -100,19 +104,19 @@
             // cbxTkTenKhoa
             // 
             this.cbxTkTenKhoa.FormattingEnabled = true;
-            this.cbxTkTenKhoa.Location = new System.Drawing.Point(399, 55);
+            this.cbxTkTenKhoa.Location = new System.Drawing.Point(363, 55);
             this.cbxTkTenKhoa.Name = "cbxTkTenKhoa";
-            this.cbxTkTenKhoa.Size = new System.Drawing.Size(164, 21);
+            this.cbxTkTenKhoa.Size = new System.Drawing.Size(109, 21);
             this.cbxTkTenKhoa.TabIndex = 9;
+            this.cbxTkTenKhoa.SelectedIndexChanged += new System.EventHandler(this.cbxTkTenKhoa_SelectedIndexChanged);
             // 
             // btnTimKiem
             // 
-            this.btnTimKiem.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnTimKiem.Location = new System.Drawing.Point(603, 21);
+            this.btnTimKiem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnTimKiem.Location = new System.Drawing.Point(489, 22);
             this.btnTimKiem.Margin = new System.Windows.Forms.Padding(2);
             this.btnTimKiem.Name = "btnTimKiem";
-            this.btnTimKiem.Size = new System.Drawing.Size(73, 46);
+            this.btnTimKiem.Size = new System.Drawing.Size(83, 54);
             this.btnTimKiem.TabIndex = 8;
             this.btnTimKiem.Text = "Tìm kiếm";
             this.btnTimKiem.UseVisualStyleBackColor = true;
@@ -127,19 +131,20 @@
             "Nam",
             "Nữ",
             "Khác"});
-            this.cbxTkGioiTinh.Location = new System.Drawing.Point(399, 21);
+            this.cbxTkGioiTinh.Location = new System.Drawing.Point(363, 21);
             this.cbxTkGioiTinh.Margin = new System.Windows.Forms.Padding(2);
             this.cbxTkGioiTinh.Name = "cbxTkGioiTinh";
-            this.cbxTkGioiTinh.Size = new System.Drawing.Size(164, 21);
+            this.cbxTkGioiTinh.Size = new System.Drawing.Size(109, 21);
             this.cbxTkGioiTinh.TabIndex = 6;
             this.cbxTkGioiTinh.Text = "-- Chọn giới tính --";
+            this.cbxTkGioiTinh.SelectedIndexChanged += new System.EventHandler(this.cbxTkGioiTinh_SelectedIndexChanged);
             // 
             // txtTkHoTen
             // 
             this.txtTkHoTen.Location = new System.Drawing.Point(123, 51);
             this.txtTkHoTen.Margin = new System.Windows.Forms.Padding(2);
             this.txtTkHoTen.Name = "txtTkHoTen";
-            this.txtTkHoTen.Size = new System.Drawing.Size(154, 20);
+            this.txtTkHoTen.Size = new System.Drawing.Size(109, 20);
             this.txtTkHoTen.TabIndex = 5;
             // 
             // txtTkMaBN
@@ -147,7 +152,7 @@
             this.txtTkMaBN.Location = new System.Drawing.Point(123, 21);
             this.txtTkMaBN.Margin = new System.Windows.Forms.Padding(2);
             this.txtTkMaBN.Name = "txtTkMaBN";
-            this.txtTkMaBN.Size = new System.Drawing.Size(154, 20);
+            this.txtTkMaBN.Size = new System.Drawing.Size(109, 20);
             this.txtTkMaBN.TabIndex = 4;
             // 
             // label4
@@ -155,24 +160,26 @@
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.label4.Location = new System.Drawing.Point(312, 58);
+            this.label4.Location = new System.Drawing.Point(276, 58);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(73, 13);
             this.label4.TabIndex = 3;
             this.label4.Text = "Tên Khoa:";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // label3
             // 
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.label3.Location = new System.Drawing.Point(312, 25);
+            this.label3.Location = new System.Drawing.Point(276, 25);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(73, 13);
             this.label3.TabIndex = 2;
             this.label3.Text = "Giới tính: ";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label2
             // 
@@ -448,8 +455,8 @@
             // 
             // dgvBenhNhan
             // 
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.dgvBenhNhan.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.dgvBenhNhan.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvBenhNhan.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -532,6 +539,30 @@
             this.Column7.MinimumWidth = 10;
             this.Column7.Name = "Column7";
             // 
+            // btnXuatExcel
+            // 
+            this.btnXuatExcel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnXuatExcel.Location = new System.Drawing.Point(589, 55);
+            this.btnXuatExcel.Margin = new System.Windows.Forms.Padding(2);
+            this.btnXuatExcel.Name = "btnXuatExcel";
+            this.btnXuatExcel.Size = new System.Drawing.Size(83, 21);
+            this.btnXuatExcel.TabIndex = 38;
+            this.btnXuatExcel.Text = "Xuất Excel";
+            this.btnXuatExcel.UseVisualStyleBackColor = true;
+            this.btnXuatExcel.Click += new System.EventHandler(this.btnXuatExcel_Click);
+            // 
+            // btnNhapExcel
+            // 
+            this.btnNhapExcel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnNhapExcel.Location = new System.Drawing.Point(589, 21);
+            this.btnNhapExcel.Margin = new System.Windows.Forms.Padding(2);
+            this.btnNhapExcel.Name = "btnNhapExcel";
+            this.btnNhapExcel.Size = new System.Drawing.Size(83, 21);
+            this.btnNhapExcel.TabIndex = 39;
+            this.btnNhapExcel.Text = "Nhập Excel";
+            this.btnNhapExcel.UseVisualStyleBackColor = true;
+            this.btnNhapExcel.Click += new System.EventHandler(this.btnNhapExcel_Click);
+            // 
             // BacSi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -595,5 +626,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.Button btnXuatExcel;
+        private System.Windows.Forms.Button btnNhapExcel;
     }
 }
