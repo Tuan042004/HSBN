@@ -192,19 +192,19 @@ namespace HSBN.QLBN
 
         private void cbxTenKhoa_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (data.con.State == ConnectionState.Closed)
-                data.con.Open();
+            //if (data.con.State == ConnectionState.Closed)
+            //    data.con.Open();
 
-            string sql = "SELECT MaKhoa, TenKhoa FROM Khoa";
-            SqlDataAdapter da = new SqlDataAdapter(sql, data.con);
-            DataTable dt = new DataTable();
-            da.Fill(dt);
+            //string sql = "SELECT MaKhoa, TenKhoa FROM Khoa";
+            //SqlDataAdapter da = new SqlDataAdapter(sql, data.con);
+            //DataTable dt = new DataTable();
+            //da.Fill(dt);
 
-            cbxTenKhoa.DataSource = dt;
-            cbxTenKhoa.DisplayMember = "TenKhoa"; // Hiển thị tên khoa
-            cbxTenKhoa.ValueMember = "TenKhoa";    // Giá trị thực tế là  tên khoa
+            //cbxTenKhoa.DataSource = dt;
+            //cbxTenKhoa.DisplayMember = "TenKhoa"; // Hiển thị tên khoa
+            //cbxTenKhoa.ValueMember = "TenKhoa";    // Giá trị thực tế là  tên khoa
 
-            data.con.Close();
+            //data.con.Close();
         }
 
         private void label10_Click(object sender, EventArgs e)
