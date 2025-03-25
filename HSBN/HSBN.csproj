@@ -46,19 +46,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-<<<<<<< HEAD
+    <Compile Include="HSXV\Hoadon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HSXV\Hoadon.Designer.cs">
+      <DependentUpon>Hoadon.cs</DependentUpon>
+    </Compile>
     <Compile Include="HSXV\Hosoxuatvien.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="HSXV\Hosoxuatvien.Designer.cs">
       <DependentUpon>Hosoxuatvien.cs</DependentUpon>
-=======
+    </Compile>
     <Compile Include="QLBN\BacSi.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="QLBN\BacSi.Designer.cs">
       <DependentUpon>BacSi.cs</DependentUpon>
->>>>>>> 96598f006d695b14e89ac6d540d61a5be7c3e6b5
     </Compile>
     <Compile Include="QLBN\data.cs" />
     <Compile Include="QLBN\BenhNhan.cs">
@@ -88,6 +92,9 @@
       <DependentUpon>Khoa.cs</DependentUpon>
     </Compile>
     <Compile Include="thuvien.cs" />
+    <EmbeddedResource Include="HSXV\Hoadon.resx">
+      <DependentUpon>Hoadon.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="HSXV\Hosoxuatvien.resx">
       <DependentUpon>Hosoxuatvien.cs</DependentUpon>
     </EmbeddedResource>

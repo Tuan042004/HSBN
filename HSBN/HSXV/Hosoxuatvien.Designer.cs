@@ -65,13 +65,13 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvBenhNhan = new System.Windows.Forms.DataGridView();
+            this.tbhsxv = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.HoTenBenhNhan = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.grbTimKiem.SuspendLayout();
             this.grbThongTin.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvBenhNhan)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbhsxv)).BeginInit();
             this.SuspendLayout();
             // 
             // Column4
@@ -223,6 +223,7 @@
             this.btnThem.TabIndex = 35;
             this.btnThem.Text = "Thêm";
             this.btnThem.UseVisualStyleBackColor = true;
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // label9
             // 
@@ -432,15 +433,15 @@
             this.Column3.MinimumWidth = 10;
             this.Column3.Name = "Column3";
             // 
-            // dgvBenhNhan
+            // tbhsxv
             // 
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.dgvBenhNhan.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvBenhNhan.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvBenhNhan.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
-            this.dgvBenhNhan.BackgroundColor = System.Drawing.Color.LightGray;
-            this.dgvBenhNhan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvBenhNhan.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.tbhsxv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.tbhsxv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.tbhsxv.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
+            this.tbhsxv.BackgroundColor = System.Drawing.Color.LightGray;
+            this.tbhsxv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.tbhsxv.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.Column2,
             this.HoTenBenhNhan,
@@ -450,14 +451,14 @@
             this.Column5,
             this.Column7,
             this.Column8});
-            this.dgvBenhNhan.Location = new System.Drawing.Point(10, 91);
-            this.dgvBenhNhan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dgvBenhNhan.Name = "dgvBenhNhan";
-            this.dgvBenhNhan.RowHeadersVisible = false;
-            this.dgvBenhNhan.RowHeadersWidth = 82;
-            this.dgvBenhNhan.RowTemplate.Height = 33;
-            this.dgvBenhNhan.Size = new System.Drawing.Size(1133, 244);
-            this.dgvBenhNhan.TabIndex = 13;
+            this.tbhsxv.Location = new System.Drawing.Point(10, 91);
+            this.tbhsxv.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbhsxv.Name = "tbhsxv";
+            this.tbhsxv.RowHeadersVisible = false;
+            this.tbhsxv.RowHeadersWidth = 82;
+            this.tbhsxv.RowTemplate.Height = 33;
+            this.tbhsxv.Size = new System.Drawing.Size(1133, 244);
+            this.tbhsxv.TabIndex = 13;
             // 
             // Column1
             // 
@@ -486,14 +487,14 @@
             this.ClientSize = new System.Drawing.Size(1148, 667);
             this.Controls.Add(this.grbTimKiem);
             this.Controls.Add(this.grbThongTin);
-            this.Controls.Add(this.dgvBenhNhan);
+            this.Controls.Add(this.tbhsxv);
             this.Name = "Hosoxuatvien";
             this.Text = "Hosoxuatvien";
             this.grbTimKiem.ResumeLayout(false);
             this.grbTimKiem.PerformLayout();
             this.grbThongTin.ResumeLayout(false);
             this.grbThongTin.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvBenhNhan)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbhsxv)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -536,7 +537,7 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridView dgvBenhNhan;
+        private System.Windows.Forms.DataGridView tbhsxv;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn HoTenBenhNhan;
