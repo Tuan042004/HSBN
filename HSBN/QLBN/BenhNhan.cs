@@ -19,14 +19,39 @@ namespace HSBN
         {
             InitializeComponent();
             load_BenhNhan();
-            btnSua.Visible = false;
-            btnXoa.Visible = false;
-            btnLuu.Visible = false;
+            close();
+
         }
         public void load_BenhNhan()
         {
             string sql = "SELECT MaBenhNhan, HoTenBenhNhan, NgaySinh, GioiTinh, DiaChi, SDT, CCCD, MBHYT FROM BenhNhan";
             data.hienThi(dgvBenhNhan, sql);
+        }
+        public void close()
+        {
+            txtMaBN.ReadOnly = true;
+            txtHoten.ReadOnly = true;
+            txtDiaChi.ReadOnly = true;
+            txtSDT.ReadOnly = true;
+            cbxGioiTinh.Enabled = false;
+            dtNgaySinh.Enabled = false;
+            txtBHYT.ReadOnly = true;
+            txtCCCD.ReadOnly = true;
+            btnSua.Visible = false;
+            btnXoa.Visible = false;
+            btnLuu.Visible = false;
+
+        }
+        public void open()
+        {
+            txtMaBN.ReadOnly = false;
+            txtHoten.ReadOnly = false;
+            txtDiaChi.ReadOnly = false;
+            txtSDT.ReadOnly = false;
+            cbxGioiTinh.Enabled = true;
+            dtNgaySinh.Enabled = true;
+            txtBHYT.ReadOnly = false;
+            txtCCCD.ReadOnly = false;
         }
         public void xoatrang()
         {
@@ -37,6 +62,7 @@ namespace HSBN
             cbxGioiTinh.SelectedItem = null;
             txtTkHoTen.Clear();
             txtTkMaBN.Clear();
+            txtBHYT.Clear();
             txtCCCD.Clear();
             cbxTkGioiTinh.SelectedItem = null;
             txtTKCCCD.Clear();
@@ -94,6 +120,7 @@ namespace HSBN
                 if (string.IsNullOrWhiteSpace(maBN) ||
                     string.IsNullOrWhiteSpace(hoTen) ||
                     string.IsNullOrWhiteSpace(sdt) ||
+                    string.IsNullOrWhiteSpace(gt) ||
                     string.IsNullOrWhiteSpace(dc) ||
                     string.IsNullOrWhiteSpace(cccd))
                 {
@@ -108,18 +135,29 @@ namespace HSBN
                     txtMaBN.Focus();
                     return;
                 }
-
+                string patternCCCD = @"^\d{12}$";
+                if (!Regex.IsMatch(cccd, patternCCCD))
+                {
+                    MessageBox.Show("Số CCCD không hợp lệ! Vui lòng nhập số có 12 chữ số !!");
+                    return;
+                }
                 // Kiểm tra định dạng số điện thoại
                 string patternSDT = @"^(0)[0-9]{9}$";
                 if (!Regex.IsMatch(sdt, patternSDT))
                 {
-                    MessageBox.Show("Số điện thoại không hợp lệ! Vui lòng nhập số có 10 chữ số, bắt đầu bằng số 0.");
+                    MessageBox.Show("Số điện thoại không hợp lệ! Vui lòng nhập số có 10 chữ số, bắt đầu bằng số 0!");
                     return;
                 }
-
+                string patternBHYT = @"^\d{10}$";
+                if (!Regex.IsMatch(mbhyt, patternBHYT))
+                {
+                    MessageBox.Show("Số BHYT không hợp lệ! Vui lòng nhập số có 10 chữ số!!");
+                    return;
+                }
                 // Câu lệnh SQL để chèn dữ liệu
                 string sql = "INSERT INTO BenhNhan VALUES ('" + maBN + "',N'" + hoTen + "','" + ns + "',N'" + gt + "','" + dc + "','" + sdt + "','" + cccd + "','" + mbhyt + "')";
                 data.insert(sql);
+                MessageBox.Show("Lưu thành công!", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 data.con.Close();
                 load_BenhNhan();
             }
@@ -129,8 +167,7 @@ namespace HSBN
         {
                 if (e.RowIndex >= 0) // Đảm bảo người dùng không click vào tiêu đề cột
                 {
-                    int i = e.RowIndex;
-                    txtMaBN.ReadOnly = true; // Khóa chỉnh sửa mã bệnh nhân
+                    int i = e.RowIndex;  
                     txtMaBN.Text = dgvBenhNhan.Rows[i].Cells[0].Value.ToString();
                     txtHoten.Text = dgvBenhNhan.Rows[i].Cells[1].Value.ToString();
                     dtNgaySinh.Value = DateTime.Parse(dgvBenhNhan.Rows[i].Cells[2].Value.ToString());
@@ -142,7 +179,10 @@ namespace HSBN
                     btnSua.Visible = true;
                     btnXoa.Visible = true;
                     btnLuu.Visible = false;
-                }
+                    open();
+                    btnThem.Visible = false;
+                    txtMaBN.ReadOnly = true; // Khóa chỉnh sửa mã bệnh nhân
+            }
             
         }
 
@@ -164,18 +204,32 @@ namespace HSBN
                 if (string.IsNullOrWhiteSpace(maBN) ||
                    string.IsNullOrWhiteSpace(hoTen) ||
                    string.IsNullOrWhiteSpace(sdt) ||
+                   string.IsNullOrWhiteSpace(gt) ||
                    string.IsNullOrWhiteSpace(dc) ||
                    string.IsNullOrWhiteSpace(cccd))
                 {
                     MessageBox.Show("Vui lòng nhập đầy đủ thông tin bệnh nhân");
                     return;
                 }
+                string patternCCCD = @"^\d{12}$";
+                if (!Regex.IsMatch(cccd, patternCCCD))
+                {
+                    MessageBox.Show("Số CCCD không hợp lệ! Vui lòng nhập số có 12 chữ số !!");
+                    return;
+                }
+                // Kiểm tra định dạng số điện thoại
                 string patternSDT = @"^(0)[0-9]{9}$";
                 if (!Regex.IsMatch(sdt, patternSDT))
                 {
-                    MessageBox.Show("Số điện thoại không hợp lệ! Vui lòng nhập số có 10 chữ số, bắt đầu bằng số 0.");
+                    MessageBox.Show("Số điện thoại không hợp lệ! Vui lòng nhập số có 10 chữ số, bắt đầu bằng số 0!");
                     return;
                 }
+                string patternBHYT = @"^\d{10}$";
+                if (!Regex.IsMatch(mbhyt, patternBHYT))
+                    {
+                        MessageBox.Show("Số BHYT không hợp lệ! Vui lòng nhập số có 10 chữ số!!");
+                        return;
+                    }
             string sql = "UPDATE BenhNhan SET HoTenBenhNhan = N'" + hoTen + "', " +
                 "NgaySinh = '" + ns + "', " +
                 "GioiTinh = N'" + gt + "', " +
@@ -207,10 +261,13 @@ namespace HSBN
 
         private void btnReset_Click(object sender, EventArgs e)
         {
+            
             xoatrang();
+            close();
             btnSua.Visible = false;
             btnXoa.Visible = false;
             btnLuu.Visible = false;
+            btnThem.Visible = true;
         }
 
         private void btnTimKiem_Click(object sender, EventArgs e)
@@ -251,7 +308,46 @@ namespace HSBN
         {
             btnSua.Visible = false;
             btnXoa.Visible = false;
-            btnLuu.Visible = true; // Nếu có nút Lưu thì hiển thị
+            btnLuu.Visible = true;
+            btnThem.Visible = false;
+            open();
+        }
+        private void nhapSo(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true; // Ngăn không cho nhập ký tự
+            }
+        }
+
+        private void BenhNhan_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtSDT_TextChanged(object sender, EventArgs e)
+        {
+            txtSDT.KeyPress += new KeyPressEventHandler(nhapSo);
+        }
+
+        private void txtDiaChi_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgvBenhNhan_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void txtCCCD_TextChanged(object sender, EventArgs e)
+        {
+            txtCCCD.KeyPress += new KeyPressEventHandler(nhapSo);
+        }
+
+        private void txtBHYT_TextChanged(object sender, EventArgs e)
+        {
+            txtBHYT.KeyPress += new KeyPressEventHandler(nhapSo);
         }
     }
 }

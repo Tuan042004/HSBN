@@ -17,7 +17,7 @@ namespace HSBN
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Khoa());
+            Application.Run(new login());
         }
     }
 }
