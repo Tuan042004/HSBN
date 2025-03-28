@@ -257,16 +257,6 @@ namespace HSBN
                         string cccd = wsheet.Cells[i, 7].Value?.ToString().Trim();
                         string mbhyt = wsheet.Cells[i, 8].Value?.ToString().Trim();
 
-                        // Kiểm tra dữ liệu không rỗng
-                        if (string.IsNullOrWhiteSpace(maBN) || string.IsNullOrWhiteSpace(hoTen) ||
-                            string.IsNullOrWhiteSpace(gt) || string.IsNullOrWhiteSpace(sdt) ||
-                            string.IsNullOrWhiteSpace(dc) || string.IsNullOrWhiteSpace(cccd))
-                        {
-                            MessageBox.Show($"Dòng {i}: Thiếu dữ liệu, bỏ qua!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                            i++;
-                            continue;
-                        }
-
                         // Kiểm tra trùng mã bệnh nhân
                         if (check_trungMaBenhNhan(maBN))
                         {
@@ -568,32 +558,35 @@ namespace HSBN
 
         private void btnXuatExcel_Click(object sender, EventArgs e)
         {
-            string tim_ma = txtTkMaBN.Text.Trim();
-            string tim_ten = txtTkHoTen.Text.Trim();
-            string tim_gioitinh;
-            if (cbxTkGioiTinh.SelectedItem == null)
-                tim_gioitinh = "";
-            else
-                tim_gioitinh = cbxTkGioiTinh.SelectedItem.ToString();
-            string tim_cccd = txtTKCCCD.Text.Trim();
+            DataTable dt = new DataTable();
 
-            if (data.con.State == ConnectionState.Closed)
-                data.con.Open();
+            // Tạo các cột từ DataGridView
+            foreach (DataGridViewColumn column in dgvBenhNhan.Columns)
+            {
+                dt.Columns.Add(column.HeaderText);
+            }
 
-            String search = "SELECT * FROM BenhNhan " +
-                "WHERE MaBenhNhan LIKE '%" + tim_ma + "%' " +
-                "AND HoTenBenhNhan LIKE N'%" + tim_ten + "%' " +
-                "AND GioiTinh LIKE N'%" + tim_gioitinh + "%' " +
-                "AND CCCD LIKE '%" + tim_cccd + "%'";
+            // Lấy dữ liệu từ DataGridView
+            foreach (DataGridViewRow row in dgvBenhNhan.Rows)
+            {
+                if (!row.IsNewRow)
+                {
+                    DataRow dRow = dt.NewRow();
+                    for (int i = 0; i < dgvBenhNhan.Columns.Count; i++)
+                    {
+                        dRow[i] = row.Cells[i].Value;
+                    }
+                    dt.Rows.Add(dRow);
+                }
+            }
 
-            SqlCommand cmd = new SqlCommand(search, data.con);
-            SqlDataAdapter da = new SqlDataAdapter();
-            da.SelectCommand = cmd;
-            DataTable tb = new DataTable();
-            da.Fill(tb);
-            cmd.Dispose();
-            data.con.Close();
-            ExportExcel(tb, "Danh sách bệnh nhân");
+            if (dt.Rows.Count == 0)
+            {
+                MessageBox.Show("Không có dữ liệu để xuất Excel!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            ExportExcel(dt, "Danh sách bệnh nhân đã tìm kiếm");
         }
 
         private void btnNhapExcel_Click(object sender, EventArgs e)

@@ -283,17 +283,6 @@ namespace HSBN.QLBN
                         string sdt = ws.Cells[i, 7].Value?.ToString().Trim();
                         string cccd = ws.Cells[i, 8].Value?.ToString().Trim();
 
-                        // Kiểm tra dữ liệu không rỗng
-                        if (string.IsNullOrWhiteSpace(maBS) || string.IsNullOrWhiteSpace(hoTen) ||
-                            string.IsNullOrWhiteSpace(gt) || string.IsNullOrWhiteSpace(khoa) ||
-                            string.IsNullOrWhiteSpace(dc) || string.IsNullOrWhiteSpace(sdt) ||
-                            string.IsNullOrWhiteSpace(cccd))
-                        {
-                            MessageBox.Show($"Dòng {i}: Thiếu dữ liệu, bỏ qua!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                            i++;
-                            continue;
-                        }
-
                         // Kiểm tra trùng mã bác sĩ
                         if (check_trungMaNhanVien(maBS))
                         {
@@ -602,28 +591,35 @@ namespace HSBN.QLBN
 
         private void btnXuatExcel_Click(object sender, EventArgs e)
         {
-            string tim_ma = txtTkMaBN.Text.Trim();
-            string tim_ten = txtTkHoTen.Text.Trim();
-            string tim_gioitinh = cbxTkGioiTinh.SelectedItem == null ? "" : cbxTkGioiTinh.SelectedItem.ToString();
+            DataTable dt = new DataTable();
 
+            // Tạo các cột từ DataGridView
+            foreach (DataGridViewColumn column in dgvBenhNhan.Columns)
+            {
+                dt.Columns.Add(column.HeaderText);
+            }
 
-            if (data.con.State == ConnectionState.Closed)
-                data.con.Open();
+            // Lấy dữ liệu từ DataGridView
+            foreach (DataGridViewRow row in dgvBenhNhan.Rows)
+            {
+                if (!row.IsNewRow)
+                {
+                    DataRow dRow = dt.NewRow();
+                    for (int i = 0; i < dgvBenhNhan.Columns.Count; i++)
+                    {
+                        dRow[i] = row.Cells[i].Value;
+                    }
+                    dt.Rows.Add(dRow);
+                }
+            }
 
-            string search = "SELECT * FROM NhanVienYTe " +
-                            "WHERE MaNhanVien LIKE '%" + tim_ma + "%' " +
-                            "AND BacSiDieuTri LIKE N'%" + tim_ten + "%' " +
-                            "AND GioiTinh LIKE N'%" + tim_gioitinh + "%' " ;
+            if (dt.Rows.Count == 0)
+            {
+                MessageBox.Show("Không có dữ liệu để xuất Excel!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
-            SqlCommand cmd = new SqlCommand(search, data.con);
-            SqlDataAdapter da = new SqlDataAdapter();
-            da.SelectCommand = cmd;
-            DataTable tb = new DataTable();
-            da.Fill(tb);
-            cmd.Dispose();
-            data.con.Close();
-
-            ExportExcel_BacSi(tb, "Danh sách bác sĩ");
+            ExportExcel_BacSi(dt, "Danh sách bệnh nhân đã tìm kiếm");
         }
     }
 }
