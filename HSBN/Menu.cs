@@ -50,7 +50,8 @@ namespace HSBN
 
         private void button9_Click(object sender, EventArgs e)
         {
-
+            OpenChildForm(new Hosoxuatvien());
+            txt1.Text = button1.Text;
         }
 
         private void button3_Click(object sender, EventArgs e)

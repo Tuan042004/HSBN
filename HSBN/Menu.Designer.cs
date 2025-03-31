@@ -34,7 +34,6 @@
             this.button11 = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
-            this.panel4 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button5 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
@@ -56,15 +55,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.panel3.Controls.Add(this.txt1);
-<<<<<<< HEAD
-            this.panel3.Location = new System.Drawing.Point(219, 16);
-            this.panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-=======
-            this.panel3.Location = new System.Drawing.Point(164, 13);
+            this.panel3.Location = new System.Drawing.Point(215, 13);
             this.panel3.Margin = new System.Windows.Forms.Padding(2);
->>>>>>> 96598f006d695b14e89ac6d540d61a5be7c3e6b5
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(960, 59);
+            this.panel3.Size = new System.Drawing.Size(1097, 59);
             this.panel3.TabIndex = 2;
             // 
             // txt1
@@ -73,11 +67,7 @@
             this.txt1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt1.Location = new System.Drawing.Point(41, 18);
             this.txt1.Name = "txt1";
-<<<<<<< HEAD
             this.txt1.Size = new System.Drawing.Size(85, 25);
-=======
-            this.txt1.Size = new System.Drawing.Size(133, 37);
->>>>>>> 96598f006d695b14e89ac6d540d61a5be7c3e6b5
             this.txt1.TabIndex = 0;
             this.txt1.Text = "Hiện thị";
             // 
@@ -86,11 +76,10 @@
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.button11);
             this.panel1.Controls.Add(this.button10);
             this.panel1.Controls.Add(this.button9);
-            this.panel1.Controls.Add(this.panel4);
-            this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.button5);
             this.panel1.Controls.Add(this.button8);
             this.panel1.Controls.Add(this.button4);
@@ -99,13 +88,8 @@
             this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.button6);
             this.panel1.Controls.Add(this.button1);
-<<<<<<< HEAD
-            this.panel1.Location = new System.Drawing.Point(9, 16);
-            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-=======
             this.panel1.Location = new System.Drawing.Point(7, 13);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
->>>>>>> 96598f006d695b14e89ac6d540d61a5be7c3e6b5
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(204, 796);
             this.panel1.TabIndex = 3;
@@ -115,13 +99,8 @@
             this.button11.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button11.Image = global::HSBN.Properties.Resources.thoat;
             this.button11.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-<<<<<<< HEAD
-            this.button11.Location = new System.Drawing.Point(5, 720);
-            this.button11.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-=======
-            this.button11.Location = new System.Drawing.Point(4, 585);
+            this.button11.Location = new System.Drawing.Point(6, 666);
             this.button11.Margin = new System.Windows.Forms.Padding(2);
->>>>>>> 96598f006d695b14e89ac6d540d61a5be7c3e6b5
             this.button11.Name = "button11";
             this.button11.Size = new System.Drawing.Size(197, 54);
             this.button11.TabIndex = 10;
@@ -134,13 +113,8 @@
             this.button10.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button10.Image = global::HSBN.Properties.Resources.thanhtoan;
             this.button10.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-<<<<<<< HEAD
-            this.button10.Location = new System.Drawing.Point(3, 660);
-            this.button10.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-=======
-            this.button10.Location = new System.Drawing.Point(2, 536);
+            this.button10.Location = new System.Drawing.Point(4, 617);
             this.button10.Margin = new System.Windows.Forms.Padding(2);
->>>>>>> 96598f006d695b14e89ac6d540d61a5be7c3e6b5
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(197, 54);
             this.button10.TabIndex = 9;
@@ -153,13 +127,8 @@
             this.button9.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button9.Image = global::HSBN.Properties.Resources.HSXV;
             this.button9.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-<<<<<<< HEAD
-            this.button9.Location = new System.Drawing.Point(3, 601);
-            this.button9.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-=======
-            this.button9.Location = new System.Drawing.Point(2, 488);
+            this.button9.Location = new System.Drawing.Point(4, 569);
             this.button9.Margin = new System.Windows.Forms.Padding(2);
->>>>>>> 96598f006d695b14e89ac6d540d61a5be7c3e6b5
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(197, 54);
             this.button9.TabIndex = 8;
@@ -168,28 +137,11 @@
             this.button9.UseVisualStyleBackColor = true;
             this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
-            // panel4
-            // 
-<<<<<<< HEAD
-            this.panel4.Location = new System.Drawing.Point(211, 68);
-            this.panel4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-=======
-            this.panel4.Location = new System.Drawing.Point(158, 55);
-            this.panel4.Margin = new System.Windows.Forms.Padding(2);
->>>>>>> 96598f006d695b14e89ac6d540d61a5be7c3e6b5
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(960, 670);
-            this.panel4.TabIndex = 4;
-            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::HSBN.Properties.Resources.Menu2;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-<<<<<<< HEAD
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-=======
+            this.pictureBox1.Location = new System.Drawing.Point(2, 2);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
->>>>>>> 96598f006d695b14e89ac6d540d61a5be7c3e6b5
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(204, 181);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -201,13 +153,8 @@
             this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button5.Image = global::HSBN.Properties.Resources.QTDT;
             this.button5.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-<<<<<<< HEAD
-            this.button5.Location = new System.Drawing.Point(3, 542);
-            this.button5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-=======
-            this.button5.Location = new System.Drawing.Point(2, 440);
+            this.button5.Location = new System.Drawing.Point(4, 521);
             this.button5.Margin = new System.Windows.Forms.Padding(2);
->>>>>>> 96598f006d695b14e89ac6d540d61a5be7c3e6b5
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(197, 52);
             this.button5.TabIndex = 4;
@@ -220,13 +167,8 @@
             this.button8.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button8.Image = global::HSBN.Properties.Resources.giuongbenh;
             this.button8.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-<<<<<<< HEAD
-            this.button8.Location = new System.Drawing.Point(3, 441);
-            this.button8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-=======
-            this.button8.Location = new System.Drawing.Point(2, 358);
+            this.button8.Location = new System.Drawing.Point(4, 439);
             this.button8.Margin = new System.Windows.Forms.Padding(2);
->>>>>>> 96598f006d695b14e89ac6d540d61a5be7c3e6b5
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(197, 42);
             this.button8.TabIndex = 7;
@@ -239,13 +181,8 @@
             this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button4.Image = global::HSBN.Properties.Resources.HSNV;
             this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-<<<<<<< HEAD
-            this.button4.Location = new System.Drawing.Point(3, 487);
-            this.button4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-=======
-            this.button4.Location = new System.Drawing.Point(2, 396);
+            this.button4.Location = new System.Drawing.Point(4, 477);
             this.button4.Margin = new System.Windows.Forms.Padding(2);
->>>>>>> 96598f006d695b14e89ac6d540d61a5be7c3e6b5
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(197, 48);
             this.button4.TabIndex = 3;
@@ -258,13 +195,8 @@
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.Image = global::HSBN.Properties.Resources.bacsi;
             this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-<<<<<<< HEAD
-            this.button3.Location = new System.Drawing.Point(3, 298);
-            this.button3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-=======
-            this.button3.Location = new System.Drawing.Point(2, 242);
+            this.button3.Location = new System.Drawing.Point(4, 323);
             this.button3.Margin = new System.Windows.Forms.Padding(2);
->>>>>>> 96598f006d695b14e89ac6d540d61a5be7c3e6b5
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(197, 42);
             this.button3.TabIndex = 2;
@@ -278,13 +210,8 @@
             this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button7.Image = global::HSBN.Properties.Resources.phongbenh;
             this.button7.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-<<<<<<< HEAD
-            this.button7.Location = new System.Drawing.Point(3, 394);
-            this.button7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-=======
-            this.button7.Location = new System.Drawing.Point(2, 320);
+            this.button7.Location = new System.Drawing.Point(4, 401);
             this.button7.Margin = new System.Windows.Forms.Padding(2);
->>>>>>> 96598f006d695b14e89ac6d540d61a5be7c3e6b5
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(197, 39);
             this.button7.TabIndex = 6;
@@ -297,13 +224,8 @@
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.Image = global::HSBN.Properties.Resources.khoa;
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-<<<<<<< HEAD
-            this.button2.Location = new System.Drawing.Point(3, 250);
-            this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-=======
-            this.button2.Location = new System.Drawing.Point(2, 203);
+            this.button2.Location = new System.Drawing.Point(4, 284);
             this.button2.Margin = new System.Windows.Forms.Padding(2);
->>>>>>> 96598f006d695b14e89ac6d540d61a5be7c3e6b5
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(197, 42);
             this.button2.TabIndex = 1;
@@ -317,13 +239,8 @@
             this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button6.Image = global::HSBN.Properties.Resources.thuoc;
             this.button6.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-<<<<<<< HEAD
-            this.button6.Location = new System.Drawing.Point(3, 346);
-            this.button6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-=======
-            this.button6.Location = new System.Drawing.Point(2, 281);
+            this.button6.Location = new System.Drawing.Point(4, 362);
             this.button6.Margin = new System.Windows.Forms.Padding(2);
->>>>>>> 96598f006d695b14e89ac6d540d61a5be7c3e6b5
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(197, 42);
             this.button6.TabIndex = 5;
@@ -335,13 +252,8 @@
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.Image = global::HSBN.Properties.Resources.benhnhan1;
-<<<<<<< HEAD
-            this.button1.Location = new System.Drawing.Point(3, 187);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-=======
-            this.button1.Location = new System.Drawing.Point(2, 152);
+            this.button1.Location = new System.Drawing.Point(4, 233);
             this.button1.Margin = new System.Windows.Forms.Padding(2);
->>>>>>> 96598f006d695b14e89ac6d540d61a5be7c3e6b5
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(197, 57);
             this.button1.TabIndex = 0;
@@ -352,33 +264,24 @@
             // 
             // panel2
             // 
-<<<<<<< HEAD
-            this.panel2.Location = new System.Drawing.Point(219, 81);
-            this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-=======
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel2.Location = new System.Drawing.Point(164, 66);
+            this.panel2.Location = new System.Drawing.Point(217, 83);
             this.panel2.Margin = new System.Windows.Forms.Padding(2);
->>>>>>> 96598f006d695b14e89ac6d540d61a5be7c3e6b5
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(960, 731);
+            this.panel2.Size = new System.Drawing.Size(1095, 731);
             this.panel2.TabIndex = 4;
             // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1199, 825);
+            this.ClientSize = new System.Drawing.Size(1336, 825);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
-<<<<<<< HEAD
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-=======
             this.Margin = new System.Windows.Forms.Padding(2);
->>>>>>> 96598f006d695b14e89ac6d540d61a5be7c3e6b5
             this.Name = "Menu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menu";
@@ -407,7 +310,6 @@
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button10;
-        private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Button button11;
     }
 }
