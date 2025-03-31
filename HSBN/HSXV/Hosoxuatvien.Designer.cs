@@ -28,23 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.grbTimKiem = new System.Windows.Forms.GroupBox();
             this.btnTimKiem = new System.Windows.Forms.Button();
-            this.txtTkHoTen = new System.Windows.Forms.TextBox();
-            this.txtTkMaBN = new System.Windows.Forms.TextBox();
+            this.txthotentk = new System.Windows.Forms.TextBox();
+            this.txtmhstk = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.cbtenkhoa = new System.Windows.Forms.ComboBox();
             this.btnThem = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
@@ -52,6 +46,7 @@
             this.btnReset = new System.Windows.Forms.Button();
             this.btnXoa = new System.Windows.Forms.Button();
             this.grbThongTin = new System.Windows.Forms.GroupBox();
+            this.txttenkhoa = new System.Windows.Forms.TextBox();
             this.cbmbn = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.dtngayxuat = new System.Windows.Forms.DateTimePicker();
@@ -64,43 +59,20 @@
             this.txtmhs = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tbhsxv = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HoTenBenhNhan = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaHoSoXuatVien = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaBenhNhan = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NgayNhapVien = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NgayXuat = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaKhoa = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BacSiDieuTri = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LyDoXuat = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btxuat = new System.Windows.Forms.Button();
+            this.btnhap = new System.Windows.Forms.Button();
             this.grbTimKiem.SuspendLayout();
             this.grbThongTin.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tbhsxv)).BeginInit();
             this.SuspendLayout();
-            // 
-            // Column4
-            // 
-            this.Column4.DataPropertyName = "NgayXuat";
-            this.Column4.HeaderText = "Ngày xuất viện";
-            this.Column4.MinimumWidth = 10;
-            this.Column4.Name = "Column4";
-            // 
-            // Column5
-            // 
-            this.Column5.DataPropertyName = "TenKhoa";
-            this.Column5.HeaderText = "Tên khoa";
-            this.Column5.MinimumWidth = 10;
-            this.Column5.Name = "Column5";
-            // 
-            // Column7
-            // 
-            this.Column7.DataPropertyName = "BacSiDieuTri";
-            this.Column7.HeaderText = "Bác sĩ điều trị";
-            this.Column7.MinimumWidth = 10;
-            this.Column7.Name = "Column7";
-            // 
-            // Column8
-            // 
-            this.Column8.DataPropertyName = "LyDoXuat";
-            this.Column8.HeaderText = "Lý do xuất viện";
-            this.Column8.MinimumWidth = 10;
-            this.Column8.Name = "Column8";
             // 
             // label8
             // 
@@ -134,18 +106,11 @@
             this.label5.TabIndex = 9;
             this.label5.Text = "Mã hồ sơ:";
             // 
-            // Column6
-            // 
-            this.Column6.DataPropertyName = "MaKhoa";
-            this.Column6.HeaderText = "Mã khoa";
-            this.Column6.MinimumWidth = 10;
-            this.Column6.Name = "Column6";
-            // 
             // grbTimKiem
             // 
             this.grbTimKiem.Controls.Add(this.btnTimKiem);
-            this.grbTimKiem.Controls.Add(this.txtTkHoTen);
-            this.grbTimKiem.Controls.Add(this.txtTkMaBN);
+            this.grbTimKiem.Controls.Add(this.txthotentk);
+            this.grbTimKiem.Controls.Add(this.txtmhstk);
             this.grbTimKiem.Controls.Add(this.label2);
             this.grbTimKiem.Controls.Add(this.label1);
             this.grbTimKiem.Location = new System.Drawing.Point(12, 11);
@@ -166,22 +131,23 @@
             this.btnTimKiem.TabIndex = 8;
             this.btnTimKiem.Text = "Tìm kiếm";
             this.btnTimKiem.UseVisualStyleBackColor = true;
+            this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiem_Click);
             // 
-            // txtTkHoTen
+            // txthotentk
             // 
-            this.txtTkHoTen.Location = new System.Drawing.Point(550, 29);
-            this.txtTkHoTen.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtTkHoTen.Name = "txtTkHoTen";
-            this.txtTkHoTen.Size = new System.Drawing.Size(204, 22);
-            this.txtTkHoTen.TabIndex = 5;
+            this.txthotentk.Location = new System.Drawing.Point(550, 29);
+            this.txthotentk.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txthotentk.Name = "txthotentk";
+            this.txthotentk.Size = new System.Drawing.Size(204, 22);
+            this.txthotentk.TabIndex = 5;
             // 
-            // txtTkMaBN
+            // txtmhstk
             // 
-            this.txtTkMaBN.Location = new System.Drawing.Point(164, 31);
-            this.txtTkMaBN.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtTkMaBN.Name = "txtTkMaBN";
-            this.txtTkMaBN.Size = new System.Drawing.Size(204, 22);
-            this.txtTkMaBN.TabIndex = 4;
+            this.txtmhstk.Location = new System.Drawing.Point(164, 31);
+            this.txtmhstk.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtmhstk.Name = "txtmhstk";
+            this.txtmhstk.Size = new System.Drawing.Size(204, 22);
+            this.txtmhstk.TabIndex = 4;
             // 
             // label2
             // 
@@ -200,20 +166,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Họ và tên: ";
             // 
-            // cbtenkhoa
-            // 
-            this.cbtenkhoa.FormattingEnabled = true;
-            this.cbtenkhoa.Items.AddRange(new object[] {
-            "Nam",
-            "Nữ",
-            "Khác"});
-            this.cbtenkhoa.Location = new System.Drawing.Point(640, 69);
-            this.cbtenkhoa.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cbtenkhoa.Name = "cbtenkhoa";
-            this.cbtenkhoa.Size = new System.Drawing.Size(220, 24);
-            this.cbtenkhoa.TabIndex = 37;
-            this.cbtenkhoa.Text = "-- Chọn giới tính --";
-            // 
             // btnThem
             // 
             this.btnThem.Location = new System.Drawing.Point(27, 256);
@@ -223,7 +175,6 @@
             this.btnThem.TabIndex = 35;
             this.btnThem.Text = "Thêm";
             this.btnThem.UseVisualStyleBackColor = true;
-            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // label9
             // 
@@ -244,6 +195,7 @@
             // dtngaynhap
             // 
             this.dtngaynhap.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.dtngaynhap.CustomFormat = "yyyy/MM/dd";
             this.dtngaynhap.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtngaynhap.Location = new System.Drawing.Point(168, 157);
             this.dtngaynhap.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -253,31 +205,35 @@
             // 
             // btnReset
             // 
-            this.btnReset.Location = new System.Drawing.Point(804, 256);
+            this.btnReset.Location = new System.Drawing.Point(963, 256);
             this.btnReset.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(135, 26);
             this.btnReset.TabIndex = 27;
             this.btnReset.Text = "Reset";
             this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
             // btnXoa
             // 
-            this.btnXoa.Location = new System.Drawing.Point(580, 256);
+            this.btnXoa.Location = new System.Drawing.Point(444, 256);
             this.btnXoa.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(111, 26);
             this.btnXoa.TabIndex = 26;
             this.btnXoa.Text = "Xóa";
             this.btnXoa.UseVisualStyleBackColor = true;
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // grbThongTin
             // 
+            this.grbThongTin.Controls.Add(this.btnhap);
+            this.grbThongTin.Controls.Add(this.btxuat);
+            this.grbThongTin.Controls.Add(this.txttenkhoa);
             this.grbThongTin.Controls.Add(this.cbmbn);
             this.grbThongTin.Controls.Add(this.label3);
             this.grbThongTin.Controls.Add(this.dtngayxuat);
             this.grbThongTin.Controls.Add(this.cbbs);
-            this.grbThongTin.Controls.Add(this.cbtenkhoa);
             this.grbThongTin.Controls.Add(this.cbmakhoa);
             this.grbThongTin.Controls.Add(this.btnThem);
             this.grbThongTin.Controls.Add(this.label9);
@@ -305,19 +261,23 @@
             this.grbThongTin.TabStop = false;
             this.grbThongTin.Text = "Nhập thông tin bệnh nhân";
             // 
+            // txttenkhoa
+            // 
+            this.txttenkhoa.Location = new System.Drawing.Point(640, 75);
+            this.txttenkhoa.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txttenkhoa.Name = "txttenkhoa";
+            this.txttenkhoa.Size = new System.Drawing.Size(220, 22);
+            this.txttenkhoa.TabIndex = 42;
+            // 
             // cbmbn
             // 
             this.cbmbn.FormattingEnabled = true;
-            this.cbmbn.Items.AddRange(new object[] {
-            "Nam",
-            "Nữ",
-            "Khác"});
             this.cbmbn.Location = new System.Drawing.Point(166, 75);
             this.cbmbn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbmbn.Name = "cbmbn";
             this.cbmbn.Size = new System.Drawing.Size(220, 24);
             this.cbmbn.TabIndex = 41;
-            this.cbmbn.Text = "-- Chọn giới tính --";
+            this.cbmbn.SelectedIndexChanged += new System.EventHandler(this.cbmbn_SelectedIndexChanged);
             // 
             // label3
             // 
@@ -330,6 +290,7 @@
             // dtngayxuat
             // 
             this.dtngayxuat.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.dtngayxuat.CustomFormat = "yyyy/MM/dd";
             this.dtngayxuat.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtngayxuat.Location = new System.Drawing.Point(168, 193);
             this.dtngayxuat.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -340,50 +301,44 @@
             // cbbs
             // 
             this.cbbs.FormattingEnabled = true;
-            this.cbbs.Items.AddRange(new object[] {
-            "Nam",
-            "Nữ",
-            "Khác"});
             this.cbbs.Location = new System.Drawing.Point(640, 114);
             this.cbbs.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbbs.Name = "cbbs";
             this.cbbs.Size = new System.Drawing.Size(220, 24);
             this.cbbs.TabIndex = 38;
-            this.cbbs.Text = "-- Chọn giới tính --";
             // 
             // cbmakhoa
             // 
             this.cbmakhoa.FormattingEnabled = true;
             this.cbmakhoa.Items.AddRange(new object[] {
-            "Nam",
-            "Nữ",
-            "Khác"});
+            ""});
             this.cbmakhoa.Location = new System.Drawing.Point(640, 31);
             this.cbmakhoa.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbmakhoa.Name = "cbmakhoa";
             this.cbmakhoa.Size = new System.Drawing.Size(220, 24);
             this.cbmakhoa.TabIndex = 36;
-            this.cbmakhoa.Text = "-- Chọn giới tính --";
             // 
             // btnSua
             // 
-            this.btnSua.Location = new System.Drawing.Point(380, 256);
+            this.btnSua.Location = new System.Drawing.Point(307, 256);
             this.btnSua.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(111, 26);
             this.btnSua.TabIndex = 25;
             this.btnSua.Text = "Sửa";
             this.btnSua.UseVisualStyleBackColor = true;
+            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // btnLuu
             // 
-            this.btnLuu.Location = new System.Drawing.Point(202, 256);
+            this.btnLuu.Location = new System.Drawing.Point(168, 256);
             this.btnLuu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnLuu.Name = "btnLuu";
             this.btnLuu.Size = new System.Drawing.Size(111, 26);
             this.btnLuu.TabIndex = 24;
             this.btnLuu.Text = "Lưu";
             this.btnLuu.UseVisualStyleBackColor = true;
+            this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
             // 
             // txtld
             // 
@@ -426,31 +381,22 @@
             this.label11.TabIndex = 14;
             this.label11.Text = "Bác sĩ điều trị:";
             // 
-            // Column3
-            // 
-            this.Column3.DataPropertyName = "NgayNhapVien";
-            this.Column3.HeaderText = "Ngày nhập viện";
-            this.Column3.MinimumWidth = 10;
-            this.Column3.Name = "Column3";
-            // 
             // tbhsxv
             // 
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.tbhsxv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.tbhsxv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             this.tbhsxv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.tbhsxv.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.tbhsxv.BackgroundColor = System.Drawing.Color.LightGray;
             this.tbhsxv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.tbhsxv.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
-            this.Column2,
-            this.HoTenBenhNhan,
-            this.Column3,
-            this.Column4,
-            this.Column6,
-            this.Column5,
-            this.Column7,
-            this.Column8});
+            this.MaHoSoXuatVien,
+            this.MaBenhNhan,
+            this.NgayNhapVien,
+            this.NgayXuat,
+            this.MaKhoa,
+            this.BacSiDieuTri,
+            this.LyDoXuat});
             this.tbhsxv.Location = new System.Drawing.Point(10, 91);
             this.tbhsxv.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbhsxv.Name = "tbhsxv";
@@ -459,26 +405,78 @@
             this.tbhsxv.RowTemplate.Height = 33;
             this.tbhsxv.Size = new System.Drawing.Size(1133, 244);
             this.tbhsxv.TabIndex = 13;
+            this.tbhsxv.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tbhsxv_CellClick);
             // 
-            // Column1
+            // MaHoSoXuatVien
             // 
-            this.Column1.DataPropertyName = "MaHoSoXuatVien";
-            this.Column1.HeaderText = "Mã hồ sơ";
-            this.Column1.MinimumWidth = 10;
-            this.Column1.Name = "Column1";
+            this.MaHoSoXuatVien.DataPropertyName = "MaHoSoXuatVien";
+            this.MaHoSoXuatVien.HeaderText = "Mã hồ sơ";
+            this.MaHoSoXuatVien.MinimumWidth = 10;
+            this.MaHoSoXuatVien.Name = "MaHoSoXuatVien";
             // 
-            // Column2
+            // MaBenhNhan
             // 
-            this.Column2.DataPropertyName = "MaBenhNhan";
-            this.Column2.HeaderText = "Mã bệnh nhân";
-            this.Column2.MinimumWidth = 10;
-            this.Column2.Name = "Column2";
+            this.MaBenhNhan.DataPropertyName = "MaBenhNhan";
+            this.MaBenhNhan.HeaderText = "Mã bệnh nhân";
+            this.MaBenhNhan.MinimumWidth = 10;
+            this.MaBenhNhan.Name = "MaBenhNhan";
             // 
-            // HoTenBenhNhan
+            // NgayNhapVien
             // 
-            this.HoTenBenhNhan.HeaderText = "Họ và tên";
-            this.HoTenBenhNhan.MinimumWidth = 6;
-            this.HoTenBenhNhan.Name = "HoTenBenhNhan";
+            this.NgayNhapVien.DataPropertyName = "NgayNhapVien";
+            this.NgayNhapVien.HeaderText = "Ngày nhập viện";
+            this.NgayNhapVien.MinimumWidth = 10;
+            this.NgayNhapVien.Name = "NgayNhapVien";
+            // 
+            // NgayXuat
+            // 
+            this.NgayXuat.DataPropertyName = "NgayXuat";
+            this.NgayXuat.HeaderText = "Ngày xuất viện";
+            this.NgayXuat.MinimumWidth = 10;
+            this.NgayXuat.Name = "NgayXuat";
+            // 
+            // MaKhoa
+            // 
+            this.MaKhoa.DataPropertyName = "MaKhoa";
+            this.MaKhoa.HeaderText = "Mã khoa";
+            this.MaKhoa.MinimumWidth = 10;
+            this.MaKhoa.Name = "MaKhoa";
+            // 
+            // BacSiDieuTri
+            // 
+            this.BacSiDieuTri.DataPropertyName = "BacSiDieuTri";
+            this.BacSiDieuTri.HeaderText = "Bác sĩ điều trị";
+            this.BacSiDieuTri.MinimumWidth = 10;
+            this.BacSiDieuTri.Name = "BacSiDieuTri";
+            // 
+            // LyDoXuat
+            // 
+            this.LyDoXuat.DataPropertyName = "LyDoXuat";
+            this.LyDoXuat.HeaderText = "Lý do xuất viện";
+            this.LyDoXuat.MinimumWidth = 10;
+            this.LyDoXuat.Name = "LyDoXuat";
+            // 
+            // btxuat
+            // 
+            this.btxuat.Location = new System.Drawing.Point(645, 256);
+            this.btxuat.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btxuat.Name = "btxuat";
+            this.btxuat.Size = new System.Drawing.Size(111, 26);
+            this.btxuat.TabIndex = 43;
+            this.btxuat.Text = "Xuất Excel";
+            this.btxuat.UseVisualStyleBackColor = true;
+            this.btxuat.Click += new System.EventHandler(this.btxuat_Click);
+            // 
+            // btnhap
+            // 
+            this.btnhap.Location = new System.Drawing.Point(797, 256);
+            this.btnhap.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnhap.Name = "btnhap";
+            this.btnhap.Size = new System.Drawing.Size(111, 26);
+            this.btnhap.TabIndex = 44;
+            this.btnhap.Text = "Nhập Excel";
+            this.btnhap.UseVisualStyleBackColor = true;
+            this.btnhap.Click += new System.EventHandler(this.btnhap_Click);
             // 
             // Hosoxuatvien
             // 
@@ -490,6 +488,7 @@
             this.Controls.Add(this.tbhsxv);
             this.Name = "Hosoxuatvien";
             this.Text = "Hosoxuatvien";
+            this.Load += new System.EventHandler(this.Hosoxuatvien_Load);
             this.grbTimKiem.ResumeLayout(false);
             this.grbTimKiem.PerformLayout();
             this.grbThongTin.ResumeLayout(false);
@@ -500,23 +499,16 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.GroupBox grbTimKiem;
         private System.Windows.Forms.Button btnTimKiem;
-        private System.Windows.Forms.TextBox txtTkHoTen;
-        private System.Windows.Forms.TextBox txtTkMaBN;
+        private System.Windows.Forms.TextBox txthotentk;
+        private System.Windows.Forms.TextBox txtmhstk;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox cbtenkhoa;
         private System.Windows.Forms.Button btnThem;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label12;
@@ -536,10 +528,16 @@
         private System.Windows.Forms.TextBox txtmhs;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridView tbhsxv;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn HoTenBenhNhan;
+        private System.Windows.Forms.TextBox txttenkhoa;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaHoSoXuatVien;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaBenhNhan;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NgayNhapVien;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NgayXuat;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaKhoa;
+        private System.Windows.Forms.DataGridViewTextBoxColumn BacSiDieuTri;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LyDoXuat;
+        private System.Windows.Forms.Button btnhap;
+        private System.Windows.Forms.Button btxuat;
     }
 }
