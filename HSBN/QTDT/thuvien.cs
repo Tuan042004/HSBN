@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace HSBN
+namespace HSBN.QTDT
 {
     internal class thuvien
     {
@@ -40,6 +40,21 @@ namespace HSBN
             dgv.DataSource = tb;
             dgv.Refresh();
         }
+
+        public static void excel(DataTable tb, string sql)
+        {
+            if (thuvien.con.State == ConnectionState.Closed)
+            {
+                thuvien.con.Open();
+            }
+            SqlCommand cmd = new SqlCommand(sql, thuvien.con);
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            adapter.SelectCommand = cmd;
+            adapter.Fill(tb);
+            cmd.Dispose();
+            thuvien.con.Close();
+        }
+
         public static void cbo(ComboBox cbo, string sql, string cothienthi, string cotgiatri)
         {
             if (thuvien.con.State == ConnectionState.Closed)

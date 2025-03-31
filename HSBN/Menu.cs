@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using HSBN.HSXV;
+using HSBN.QTDT;
 
 namespace HSBN
 {
@@ -56,6 +57,18 @@ namespace HSBN
         {
             OpenChildForm(new BacSi());
             txt1.Text = button3.Text;
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new Thuoc());
+            txt1.Text = button6.Text;
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new Quatrinhdieutri());
+            txt1.Text = button5.Text;
         }
     }
 }

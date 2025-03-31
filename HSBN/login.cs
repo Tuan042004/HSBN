@@ -61,6 +61,16 @@ namespace HSBN
         {
             Application.Exit();
         }
+
+        private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
     
 }
