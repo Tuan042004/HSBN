@@ -621,6 +621,11 @@ namespace HSBN.QLBN
 
             ExportExcel_BacSi(dt, "Danh sách bệnh nhân đã tìm kiếm");
         }
+
+        private void grbTimKiem_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 

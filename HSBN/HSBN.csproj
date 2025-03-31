@@ -91,7 +91,19 @@
     <Compile Include="QLBN\Khoa.Designer.cs">
       <DependentUpon>Khoa.cs</DependentUpon>
     </Compile>
-    <Compile Include="thuvien.cs" />
+    <Compile Include="QTDT\Quatrinhdieutri.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QTDT\Quatrinhdieutri.Designer.cs">
+      <DependentUpon>Quatrinhdieutri.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QTDT\Thuoc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QTDT\Thuoc.Designer.cs">
+      <DependentUpon>Thuoc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QTDT\thuvien.cs" />
     <EmbeddedResource Include="HSXV\Hoadon.resx">
       <DependentUpon>Hoadon.cs</DependentUpon>
     </EmbeddedResource>
@@ -123,6 +135,13 @@
     <EmbeddedResource Include="QLBN\Khoa.resx">
       <DependentUpon>Khoa.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="QTDT\Quatrinhdieutri.resx">
+      <DependentUpon>Quatrinhdieutri.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QTDT\Thuoc.resx">
+      <DependentUpon>Thuoc.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include=".env" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

@@ -36,6 +36,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -78,7 +79,7 @@
             this.label2.Location = new System.Drawing.Point(51, 130);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(138, 32);
+            this.label2.Size = new System.Drawing.Size(74, 17);
             this.label2.TabIndex = 8;
             this.label2.Text = "Mật khẩu";
             // 
@@ -97,7 +98,7 @@
             this.label1.Location = new System.Drawing.Point(51, 84);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(148, 32);
+            this.label1.Size = new System.Drawing.Size(80, 17);
             this.label1.TabIndex = 6;
             this.label1.Text = "Tài khoản";
             // 
@@ -111,6 +112,7 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // label3
             // 
@@ -120,9 +122,14 @@
             this.label3.Location = new System.Drawing.Point(82, 27);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(591, 37);
+            this.label3.Size = new System.Drawing.Size(305, 20);
             this.label3.TabIndex = 12;
             this.label3.Text = "QUẢN HỒ SƠ BỆNH NHÂN NỘI TRÚ";
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            this.openFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialog1_FileOk);
             // 
             // login
             // 
@@ -157,6 +164,7 @@
         private System.Windows.Forms.TextBox txttk;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }
 
