@@ -11,7 +11,7 @@ namespace HSBN.QLBN
 {
     internal class data
     {
-        public static SqlConnection con = new SqlConnection("Data Source=YUNO\\SQLEXPRESS;Initial Catalog=QuanLyBenhVien;Integrated Security=True");
+        public static SqlConnection con = new SqlConnection("Data Source=CONMEOHUDON\\SQLEXPRESS02;Initial Catalog=QuanLyBenhVien;Integrated Security=True");
         public static void insert(string sql)
         {
             // ket noi database
