@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using HSBN.HSXV;
+using HSBN.QTDT;
 namespace HSBN
 {
     internal static class Program
@@ -18,7 +19,7 @@ namespace HSBN
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            Application.Run(new Menu());
+            Application.Run(new Xetthuoc());
 
 
         }

@@ -101,19 +101,23 @@ namespace HSBN.QTDT
             cl4.ColumnWidth = 15.0;
 
             xls.Range cl5 = oSheet.get_Range("E3", "E3");
-            cl5.Value2 = "HẠN SỬ DỤNG";
+            cl5.Value2 = "SỐ LƯỢNG";
             cl5.ColumnWidth = 25.0;
 
             xls.Range cl6 = oSheet.get_Range("F3", "F3");
-            cl6.Value2 = "NHÀ SẢN XUẤT";
+            cl6.Value2 = "HẠN SỬ DỤNG";
             cl6.ColumnWidth = 15.0;
+
+            xls.Range cl7 = oSheet.get_Range("G3", "G3");
+            cl7.Value2 = "NHÀ SẢN XUẤT";
+            cl7.ColumnWidth = 15.0;
 
             //xls.Range cl6_1 = oSheet.get_Range("F4", "F1000");
             //cl6_1.Columns.NumberFormat = "dd/mm/yyyy";
 
 
 
-            xls.Range rowHead = oSheet.get_Range("A3", "F3");
+            xls.Range rowHead = oSheet.get_Range("A3", "G3");
             rowHead.Font.Bold = true;
             // Kẻ viền
             rowHead.Borders.LineStyle = xls.Constants.xlSolid;
@@ -168,6 +172,7 @@ namespace HSBN.QTDT
             String ten = txtTenthuoc.Text.Trim();
             String dv = txtDonvi.Text.Trim();
             String dg = txtDongia.Text.Trim();
+            String sl = txtSoluong.Text.Trim();
             DateTime ngay = dateHsd.Value;
             String nsx = txtNsx.Text.Trim();
 
@@ -188,13 +193,14 @@ namespace HSBN.QTDT
                string.IsNullOrWhiteSpace(ten) ||
                 string.IsNullOrWhiteSpace(dv) ||
                 string.IsNullOrWhiteSpace(dg) ||
+                string.IsNullOrWhiteSpace(sl) ||
                 string.IsNullOrWhiteSpace(nsx))
             {
                 MessageBox.Show("Vui lòng nhập đầy đủ thông tin");
                 return;
             }
 
-            string sql = "Insert Thuoc Values('" + ma + "',N'" + ten + "',N'" + dv + "','" + dg + "','" + ngay + "',N'" + nsx + "')";
+            string sql = "Insert Thuoc Values('" + ma + "',N'" + ten + "',N'" + dv + "','" + dg + "','" + sl + "','" + ngay + "',N'" + nsx + "')";
             thuvien.insert(sql);
             MessageBox.Show("Thêm mới thuốc thành công!");
             load_thuoc();
@@ -212,6 +218,7 @@ namespace HSBN.QTDT
             String ten = txtTenthuoc.Text.Trim();
             String dv = txtDonvi.Text.Trim();
             String dg = txtDongia.Text.Trim();
+            String sl = txtSoluong.Text.Trim();
             DateTime ngay = dateHsd.Value;
             String nsx = txtNsx.Text.Trim();
 
@@ -219,6 +226,7 @@ namespace HSBN.QTDT
                string.IsNullOrWhiteSpace(ten) ||
                 string.IsNullOrWhiteSpace(dv) ||
                 string.IsNullOrWhiteSpace(dg) ||
+                string.IsNullOrWhiteSpace(sl) ||
                 string.IsNullOrWhiteSpace(nsx))
             {
                 MessageBox.Show("Vui lòng nhập đầy đủ thông tin");
@@ -228,6 +236,7 @@ namespace HSBN.QTDT
             string sql = "UPDATE Thuoc SET TenThuoc = N'" + ten +
              "', DonVi = N'" + dv +
              "', DonGia = '" + dg +
+             "', SoLuong = '" + sl +
              "', HanSuDung = '" + ngay +
              "', NhaSanXuat = N'" + nsx +
              "' WHERE MaThuoc = '" + ma + "'";
@@ -255,8 +264,9 @@ namespace HSBN.QTDT
             txtTenthuoc.Text = dataGridView1.Rows[i].Cells[1].Value.ToString();
             txtDonvi.Text = dataGridView1.Rows[i].Cells[2].Value.ToString();
             txtDongia.Text = dataGridView1.Rows[i].Cells[3].Value.ToString();
-            dateHsd.Value = DateTime.Parse(dataGridView1.Rows[i].Cells[4].Value.ToString());
-            txtNsx.Text = dataGridView1.Rows[i].Cells[5].Value.ToString();
+            txtSoluong.Text = dataGridView1.Rows[i].Cells[4].Value.ToString();
+            dateHsd.Value = DateTime.Parse(dataGridView1.Rows[i].Cells[5].Value.ToString());
+            txtNsx.Text = dataGridView1.Rows[i].Cells[6].Value.ToString();
             txtMathuoc.Enabled = false;
         }
 
@@ -324,7 +334,8 @@ namespace HSBN.QTDT
                                 Convert.ToString(wsheet.Cells[i, 3].Value),
                                 Convert.ToString(wsheet.Cells[i, 4].Value),
                                 Convert.ToString(wsheet.Cells[i, 5].Value),
-                                Convert.ToString(wsheet.Cells[i, 6].Value)
+                                Convert.ToString(wsheet.Cells[i, 6].Value),
+                                Convert.ToString(wsheet.Cells[i, 7].Value)
                                 );
                             i++;
                         }
@@ -334,9 +345,9 @@ namespace HSBN.QTDT
             }
         }
 
-        private void thuochaha(string ma, string ten, string dv, string dg, string ngay, string nsx)
+        private void thuochaha(string ma, string ten, string dv, string dg, string sl, string ngay, string nsx)
         {
-            string sql = "Insert Thuoc Values('" + ma + "',N'" + ten + "',N'" + dv + "','" + dg + "','" + ngay + "',N'" + nsx + "')";
+            string sql = "Insert Thuoc Values('" + ma + "',N'" + ten + "',N'" + dv + "','" + dg + "','" + sl + "','" + ngay + "',N'" + nsx + "')";
             thuvien.insert(sql);
 
         }
@@ -369,14 +380,20 @@ namespace HSBN.QTDT
 
         private void txtDongia_TextChanged(object sender, EventArgs e)
         {
-            txtDongia.KeyPress += new KeyPressEventHandler(nhapSo);
-            MessageBox.Show("Nhập số");
+            //txtDongia.KeyPress += new KeyPressEventHandler(nhapSo);
+            //MessageBox.Show("Nhập số");
         }
 
         private void txtDongiatk_TextChanged(object sender, EventArgs e)
         {
-            txtDongiatk.KeyPress += new KeyPressEventHandler(nhapSo);
-            MessageBox.Show("Nhập số");
+            //txtDongiatk.KeyPress += new KeyPressEventHandler(nhapSo);
+            //MessageBox.Show("Nhập số");
+        }
+
+        private void txtSoluong_TextChanged(object sender, EventArgs e)
+        {
+            //txtSoluong.KeyPress += new KeyPressEventHandler(nhapSo);
+            //MessageBox.Show("Nhập số");
         }
     }
 }

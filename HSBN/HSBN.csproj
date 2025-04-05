@@ -104,6 +104,18 @@
       <DependentUpon>Thuoc.cs</DependentUpon>
     </Compile>
     <Compile Include="QTDT\thuvien.cs" />
+    <Compile Include="QTDT\Timkiem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QTDT\Timkiem.Designer.cs">
+      <DependentUpon>Timkiem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QTDT\Xetthuoc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QTDT\Xetthuoc.Designer.cs">
+      <DependentUpon>Xetthuoc.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="HSXV\Hoadon.resx">
       <DependentUpon>Hoadon.cs</DependentUpon>
     </EmbeddedResource>
@@ -140,6 +152,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="QTDT\Thuoc.resx">
       <DependentUpon>Thuoc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QTDT\Timkiem.resx">
+      <DependentUpon>Timkiem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QTDT\Xetthuoc.resx">
+      <DependentUpon>Xetthuoc.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
