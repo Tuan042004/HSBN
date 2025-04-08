@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using HSBN.QLBN;
 
 namespace HSBN.QTDT
 {
@@ -41,47 +42,29 @@ namespace HSBN.QTDT
 
         private void cboKhoa_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // Lấy giá trị MaKhoa hoặc TenKhoa tùy theo cách bạn bind dữ liệu
+            // Lấy TenKhoa để lọc bệnh nhân theo khoa
             string tenKhoa = cboKhoa.Text;
-            string sql = "Select * From QuaTrinhDieuTri WHERE TenKhoa = N'" + tenKhoa + "'";
+            string sql = "SELECT * FROM QuaTrinhDieuTri WHERE TenKhoa = N'" + tenKhoa + "'";
             thuvien.cbo(cboBenhnhan, sql, "TenBenhNhan", "MaBenhNhan");
 
-            if (tenKhoa == "Khoa Da Liễu")
-            {
-                cbbThuoc.Items.Clear();
-                cbbThuoc.Items.Add("Metoprolol");
-                cbbThuoc.Items.Add("Atenolol");
-            }
-            if (tenKhoa == "Khoa Nội")
-            {
-                cbbThuoc.Items.Clear();
-                cbbThuoc.Items.Add("Nebivolol");
-                cbbThuoc.Items.Add("Amlodipine");
-                cbbThuoc.Items.Add("Nebivolol");
-                cbbThuoc.Items.Add("Divalproex");
-            }
-            if (tenKhoa == "Khoa Nhi")
-            {
-                cbbThuoc.Items.Clear();
-                cbbThuoc.Items.Add("Olanzapine");
-                cbbThuoc.Items.Add("Fluconazole");
-                cbbThuoc.Items.Add("Zolpidem");
-                cbbThuoc.Items.Add("Eszopiclone");
-            }
-            if (tenKhoa == "Khoa Ngoại")
-            {
-                cbbThuoc.Items.Clear();
-                cbbThuoc.Items.Add("Ticagrelor");
-                cbbThuoc.Items.Add("Vitamin");
-                cbbThuoc.Items.Add("Tiotropium");
-            }
-            if (tenKhoa == "Khoa Sản")
-            {
-                cbbThuoc.Items.Clear();
-                cbbThuoc.Items.Add("12");
-                cbbThuoc.Items.Add("Tolterodine");
-            }
+            // Lấy MaKhoa để lọc thuốc theo khoa
+            if (cboKhoa.SelectedValue == null || cboKhoa.SelectedValue.ToString() == "System.Data.DataRowView")
+                return;
 
+            string maKhoa = cboKhoa.SelectedValue.ToString();
+
+            // Lấy danh sách thuốc của khoa đó
+            string sqlThuoc = "SELECT TenThuoc FROM Thuoc WHERE MaKhoa = '" + maKhoa + "'";
+
+            // Đọc dữ liệu về
+            DataTable dtThuoc = thuvien.docdulieu(sqlThuoc);
+
+            // Clear và thêm thuốc vào combobox thuốc
+            cbbThuoc.Items.Clear();
+            foreach (DataRow row in dtThuoc.Rows)
+            {
+                cbbThuoc.Items.Add(row["TenThuoc"].ToString());
+            }
         }
 
         private void txtSoNgayNhapVien_ValueChanged(object sender, EventArgs e)

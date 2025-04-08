@@ -91,6 +91,42 @@
     <Compile Include="QLBN\Khoa.Designer.cs">
       <DependentUpon>Khoa.cs</DependentUpon>
     </Compile>
+    <Compile Include="QLPB\GiuongBenh.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QLPB\GiuongBenh.Designer.cs">
+      <DependentUpon>GiuongBenh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QLPB\Giuong_CapNhat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QLPB\Giuong_CapNhat.Designer.cs">
+      <DependentUpon>Giuong_CapNhat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QLPB\Phong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QLPB\Phong.Designer.cs">
+      <DependentUpon>Phong.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QLPB\PhongBenh_CapNhat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QLPB\PhongBenh_CapNhat.Designer.cs">
+      <DependentUpon>PhongBenh_CapNhat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QLPB\ToaNha.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QLPB\ToaNha.Designer.cs">
+      <DependentUpon>ToaNha.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QLPB\Toa_Capnhat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QLPB\Toa_Capnhat.Designer.cs">
+      <DependentUpon>Toa_Capnhat.cs</DependentUpon>
+    </Compile>
     <Compile Include="QTDT\Quatrinhdieutri.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -146,6 +182,24 @@
     </EmbeddedResource>
     <EmbeddedResource Include="QLBN\Khoa.resx">
       <DependentUpon>Khoa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QLPB\GiuongBenh.resx">
+      <DependentUpon>GiuongBenh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QLPB\Giuong_CapNhat.resx">
+      <DependentUpon>Giuong_CapNhat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QLPB\Phong.resx">
+      <DependentUpon>Phong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QLPB\PhongBenh_CapNhat.resx">
+      <DependentUpon>PhongBenh_CapNhat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QLPB\ToaNha.resx">
+      <DependentUpon>ToaNha.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QLPB\Toa_Capnhat.resx">
+      <DependentUpon>Toa_Capnhat.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="QTDT\Quatrinhdieutri.resx">
       <DependentUpon>Quatrinhdieutri.cs</DependentUpon>

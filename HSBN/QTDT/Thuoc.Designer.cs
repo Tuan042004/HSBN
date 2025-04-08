@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txtSoluong = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.btnNhapexcel = new System.Windows.Forms.Button();
             this.txtNsx = new System.Windows.Forms.TextBox();
             this.txtDonvi = new System.Windows.Forms.TextBox();
@@ -50,7 +52,6 @@
             this.txtNsxtk = new System.Windows.Forms.TextBox();
             this.txtTenthuoctk = new System.Windows.Forms.TextBox();
             this.txtMathuoctk = new System.Windows.Forms.TextBox();
-            this.txtDongiatk = new System.Windows.Forms.TextBox();
             this.btbXuatexcel = new System.Windows.Forms.Button();
             this.btnTimkiem = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
@@ -58,6 +59,9 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.label8 = new System.Windows.Forms.Label();
+            this.cboKhoa = new System.Windows.Forms.ComboBox();
+            this.cboKhoatk = new System.Windows.Forms.ComboBox();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -65,8 +69,7 @@
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label7 = new System.Windows.Forms.Label();
-            this.txtSoluong = new System.Windows.Forms.TextBox();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -74,6 +77,8 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.cboKhoa);
+            this.groupBox2.Controls.Add(this.label8);
             this.groupBox2.Controls.Add(this.txtSoluong);
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.btnNhapexcel);
@@ -93,19 +98,38 @@
             this.groupBox2.Controls.Add(this.label10);
             this.groupBox2.Controls.Add(this.label9);
             this.groupBox2.Location = new System.Drawing.Point(19, 384);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox2.Size = new System.Drawing.Size(674, 160);
             this.groupBox2.TabIndex = 23;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Cập nhật thông tin chi tiết về thuốc";
             // 
+            // txtSoluong
+            // 
+            this.txtSoluong.Location = new System.Drawing.Point(351, 47);
+            this.txtSoluong.Margin = new System.Windows.Forms.Padding(2);
+            this.txtSoluong.Name = "txtSoluong";
+            this.txtSoluong.Size = new System.Drawing.Size(172, 20);
+            this.txtSoluong.TabIndex = 36;
+            this.txtSoluong.TextChanged += new System.EventHandler(this.txtSoluong_TextChanged);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(272, 47);
+            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(52, 13);
+            this.label7.TabIndex = 35;
+            this.label7.Text = "Số lượng:";
+            // 
             // btnNhapexcel
             // 
             this.btnNhapexcel.BackColor = System.Drawing.Color.Aquamarine;
             this.btnNhapexcel.Location = new System.Drawing.Point(547, 19);
-            this.btnNhapexcel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnNhapexcel.Margin = new System.Windows.Forms.Padding(2);
             this.btnNhapexcel.Name = "btnNhapexcel";
             this.btnNhapexcel.Size = new System.Drawing.Size(102, 41);
             this.btnNhapexcel.TabIndex = 34;
@@ -116,7 +140,7 @@
             // txtNsx
             // 
             this.txtNsx.Location = new System.Drawing.Point(351, 99);
-            this.txtNsx.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtNsx.Margin = new System.Windows.Forms.Padding(2);
             this.txtNsx.Name = "txtNsx";
             this.txtNsx.Size = new System.Drawing.Size(172, 20);
             this.txtNsx.TabIndex = 33;
@@ -124,7 +148,7 @@
             // txtDonvi
             // 
             this.txtDonvi.Location = new System.Drawing.Point(86, 73);
-            this.txtDonvi.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtDonvi.Margin = new System.Windows.Forms.Padding(2);
             this.txtDonvi.Name = "txtDonvi";
             this.txtDonvi.Size = new System.Drawing.Size(170, 20);
             this.txtDonvi.TabIndex = 32;
@@ -132,7 +156,7 @@
             // txtTenthuoc
             // 
             this.txtTenthuoc.Location = new System.Drawing.Point(86, 48);
-            this.txtTenthuoc.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtTenthuoc.Margin = new System.Windows.Forms.Padding(2);
             this.txtTenthuoc.Name = "txtTenthuoc";
             this.txtTenthuoc.Size = new System.Drawing.Size(170, 20);
             this.txtTenthuoc.TabIndex = 31;
@@ -140,7 +164,7 @@
             // txtDongia
             // 
             this.txtDongia.Location = new System.Drawing.Point(351, 19);
-            this.txtDongia.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtDongia.Margin = new System.Windows.Forms.Padding(2);
             this.txtDongia.Name = "txtDongia";
             this.txtDongia.Size = new System.Drawing.Size(172, 20);
             this.txtDongia.TabIndex = 30;
@@ -160,7 +184,7 @@
             // 
             this.btnXoa.BackColor = System.Drawing.Color.Aquamarine;
             this.btnXoa.Location = new System.Drawing.Point(560, 107);
-            this.btnXoa.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnXoa.Margin = new System.Windows.Forms.Padding(2);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(88, 41);
             this.btnXoa.TabIndex = 24;
@@ -172,7 +196,7 @@
             // 
             this.btnSua.BackColor = System.Drawing.Color.Aquamarine;
             this.btnSua.Location = new System.Drawing.Point(166, 107);
-            this.btnSua.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSua.Margin = new System.Windows.Forms.Padding(2);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(90, 41);
             this.btnSua.TabIndex = 23;
@@ -184,7 +208,7 @@
             // 
             this.btnThem.BackColor = System.Drawing.Color.Aquamarine;
             this.btnThem.Location = new System.Drawing.Point(46, 107);
-            this.btnThem.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnThem.Margin = new System.Windows.Forms.Padding(2);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(94, 41);
             this.btnThem.TabIndex = 22;
@@ -197,7 +221,7 @@
             this.dateHsd.CustomFormat = "dd/MM/yyyy";
             this.dateHsd.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateHsd.Location = new System.Drawing.Point(351, 74);
-            this.dateHsd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dateHsd.Margin = new System.Windows.Forms.Padding(2);
             this.dateHsd.Name = "dateHsd";
             this.dateHsd.Size = new System.Drawing.Size(172, 20);
             this.dateHsd.TabIndex = 17;
@@ -235,7 +259,7 @@
             // txtMathuoc
             // 
             this.txtMathuoc.Location = new System.Drawing.Point(86, 22);
-            this.txtMathuoc.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtMathuoc.Margin = new System.Windows.Forms.Padding(2);
             this.txtMathuoc.Name = "txtMathuoc";
             this.txtMathuoc.Size = new System.Drawing.Size(170, 20);
             this.txtMathuoc.TabIndex = 10;
@@ -273,9 +297,10 @@
             this.Column3,
             this.Column5,
             this.Column6,
-            this.Column8});
+            this.Column8,
+            this.Column7});
             this.dataGridView1.Location = new System.Drawing.Point(19, 101);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 51;
@@ -286,10 +311,10 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.cboKhoatk);
             this.groupBox1.Controls.Add(this.txtNsxtk);
             this.groupBox1.Controls.Add(this.txtTenthuoctk);
             this.groupBox1.Controls.Add(this.txtMathuoctk);
-            this.groupBox1.Controls.Add(this.txtDongiatk);
             this.groupBox1.Controls.Add(this.btbXuatexcel);
             this.groupBox1.Controls.Add(this.btnTimkiem);
             this.groupBox1.Controls.Add(this.label4);
@@ -297,9 +322,9 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(19, 17);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox1.Size = new System.Drawing.Size(674, 70);
             this.groupBox1.TabIndex = 21;
             this.groupBox1.TabStop = false;
@@ -308,7 +333,7 @@
             // txtNsxtk
             // 
             this.txtNsxtk.Location = new System.Drawing.Point(329, 42);
-            this.txtNsxtk.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtNsxtk.Margin = new System.Windows.Forms.Padding(2);
             this.txtNsxtk.Name = "txtNsxtk";
             this.txtNsxtk.Size = new System.Drawing.Size(153, 20);
             this.txtNsxtk.TabIndex = 14;
@@ -316,7 +341,7 @@
             // txtTenthuoctk
             // 
             this.txtTenthuoctk.Location = new System.Drawing.Point(73, 41);
-            this.txtTenthuoctk.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtTenthuoctk.Margin = new System.Windows.Forms.Padding(2);
             this.txtTenthuoctk.Name = "txtTenthuoctk";
             this.txtTenthuoctk.Size = new System.Drawing.Size(141, 20);
             this.txtTenthuoctk.TabIndex = 13;
@@ -324,25 +349,16 @@
             // txtMathuoctk
             // 
             this.txtMathuoctk.Location = new System.Drawing.Point(73, 15);
-            this.txtMathuoctk.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtMathuoctk.Margin = new System.Windows.Forms.Padding(2);
             this.txtMathuoctk.Name = "txtMathuoctk";
             this.txtMathuoctk.Size = new System.Drawing.Size(141, 20);
             this.txtMathuoctk.TabIndex = 12;
-            // 
-            // txtDongiatk
-            // 
-            this.txtDongiatk.Location = new System.Drawing.Point(329, 18);
-            this.txtDongiatk.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.txtDongiatk.Name = "txtDongiatk";
-            this.txtDongiatk.Size = new System.Drawing.Size(153, 20);
-            this.txtDongiatk.TabIndex = 11;
-            this.txtDongiatk.TextChanged += new System.EventHandler(this.txtDongiatk_TextChanged);
             // 
             // btbXuatexcel
             // 
             this.btbXuatexcel.BackColor = System.Drawing.Color.Aquamarine;
             this.btbXuatexcel.Location = new System.Drawing.Point(574, 13);
-            this.btbXuatexcel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btbXuatexcel.Margin = new System.Windows.Forms.Padding(2);
             this.btbXuatexcel.Name = "btbXuatexcel";
             this.btbXuatexcel.Size = new System.Drawing.Size(74, 48);
             this.btbXuatexcel.TabIndex = 1;
@@ -354,7 +370,7 @@
             // 
             this.btnTimkiem.BackColor = System.Drawing.Color.Aquamarine;
             this.btnTimkiem.Location = new System.Drawing.Point(496, 12);
-            this.btnTimkiem.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnTimkiem.Margin = new System.Windows.Forms.Padding(2);
             this.btnTimkiem.Name = "btnTimkiem";
             this.btnTimkiem.Size = new System.Drawing.Size(74, 50);
             this.btnTimkiem.TabIndex = 8;
@@ -378,9 +394,9 @@
             this.label3.Location = new System.Drawing.Point(246, 18);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(47, 13);
+            this.label3.Size = new System.Drawing.Size(35, 13);
             this.label3.TabIndex = 4;
-            this.label3.Text = "Đơn giá:";
+            this.label3.Text = "Khoa:";
             // 
             // label2
             // 
@@ -405,6 +421,32 @@
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(272, 125);
+            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(35, 13);
+            this.label8.TabIndex = 37;
+            this.label8.Text = "Khoa:";
+            // 
+            // cboKhoa
+            // 
+            this.cboKhoa.FormattingEnabled = true;
+            this.cboKhoa.Location = new System.Drawing.Point(351, 125);
+            this.cboKhoa.Name = "cboKhoa";
+            this.cboKhoa.Size = new System.Drawing.Size(172, 21);
+            this.cboKhoa.TabIndex = 38;
+            // 
+            // cboKhoatk
+            // 
+            this.cboKhoatk.FormattingEnabled = true;
+            this.cboKhoatk.Location = new System.Drawing.Point(329, 16);
+            this.cboKhoatk.Name = "cboKhoatk";
+            this.cboKhoatk.Size = new System.Drawing.Size(153, 21);
+            this.cboKhoatk.TabIndex = 39;
             // 
             // Column1
             // 
@@ -454,24 +496,11 @@
             this.Column8.MinimumWidth = 6;
             this.Column8.Name = "Column8";
             // 
-            // label7
+            // Column7
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(272, 47);
-            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(52, 13);
-            this.label7.TabIndex = 35;
-            this.label7.Text = "Số lượng:";
-            // 
-            // txtSoluong
-            // 
-            this.txtSoluong.Location = new System.Drawing.Point(351, 47);
-            this.txtSoluong.Margin = new System.Windows.Forms.Padding(2);
-            this.txtSoluong.Name = "txtSoluong";
-            this.txtSoluong.Size = new System.Drawing.Size(172, 20);
-            this.txtSoluong.TabIndex = 36;
-            this.txtSoluong.TextChanged += new System.EventHandler(this.txtSoluong_TextChanged);
+            this.Column7.DataPropertyName = "MaKhoa";
+            this.Column7.HeaderText = "Mã Khoa";
+            this.Column7.Name = "Column7";
             // 
             // Thuoc
             // 
@@ -518,7 +547,6 @@
         private System.Windows.Forms.TextBox txtNsxtk;
         private System.Windows.Forms.TextBox txtTenthuoctk;
         private System.Windows.Forms.TextBox txtMathuoctk;
-        private System.Windows.Forms.TextBox txtDongiatk;
         private System.Windows.Forms.Button btbXuatexcel;
         private System.Windows.Forms.Button btnTimkiem;
         private System.Windows.Forms.Label label4;
@@ -526,6 +554,11 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.TextBox txtSoluong;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ComboBox cboKhoa;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.ComboBox cboKhoatk;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
@@ -533,7 +566,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
-        private System.Windows.Forms.TextBox txtSoluong;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
     }
 }
