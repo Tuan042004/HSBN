@@ -29,9 +29,17 @@ namespace HSBN.QTDT
             txtNsx.Text = "";
             txtMathuoctk.Text = "";
             txtTenthuoctk.Text = "";
-            txtDongiatk.Text = "";
+            txtSoluong.Text = "";
+            //cboKhoatk.SelectedIndex = 0;
             txtNsxtk.Text = "";
             txtMathuoc.Enabled = true;
+        }
+
+        private void load_cbo()
+        {
+            string sql = "Select * From Khoa";
+            thuvien.cbo(cboKhoa, sql, "TenKhoa", "MaKhoa");
+            thuvien.cbo(cboKhoatk, sql, "TenKhoa", "MaKhoa");
         }
         private void load_thuoc()
         {
@@ -112,12 +120,16 @@ namespace HSBN.QTDT
             cl7.Value2 = "NHÀ SẢN XUẤT";
             cl7.ColumnWidth = 15.0;
 
+            xls.Range cl8 = oSheet.get_Range("H3", "H3");
+            cl8.Value2 = "MÃ KHOA";
+            cl8.ColumnWidth = 15.0;
+
             //xls.Range cl6_1 = oSheet.get_Range("F4", "F1000");
             //cl6_1.Columns.NumberFormat = "dd/mm/yyyy";
 
 
 
-            xls.Range rowHead = oSheet.get_Range("A3", "G3");
+            xls.Range rowHead = oSheet.get_Range("A3", "H3");
             rowHead.Font.Bold = true;
             // Kẻ viền
             rowHead.Borders.LineStyle = xls.Constants.xlSolid;
@@ -175,6 +187,7 @@ namespace HSBN.QTDT
             String sl = txtSoluong.Text.Trim();
             DateTime ngay = dateHsd.Value;
             String nsx = txtNsx.Text.Trim();
+            String khoa = cboKhoa.SelectedValue.ToString();
 
             if (checktrungma(ma))
             {
@@ -194,22 +207,25 @@ namespace HSBN.QTDT
                 string.IsNullOrWhiteSpace(dv) ||
                 string.IsNullOrWhiteSpace(dg) ||
                 string.IsNullOrWhiteSpace(sl) ||
-                string.IsNullOrWhiteSpace(nsx))
+                string.IsNullOrWhiteSpace(nsx) ||
+                string.IsNullOrWhiteSpace(khoa))
             {
                 MessageBox.Show("Vui lòng nhập đầy đủ thông tin");
                 return;
             }
 
-            string sql = "Insert Thuoc Values('" + ma + "',N'" + ten + "',N'" + dv + "','" + dg + "','" + sl + "','" + ngay + "',N'" + nsx + "')";
+            string sql = "Insert Thuoc Values('" + ma + "',N'" + ten + "',N'" + dv + "','" + dg + "','" + sl + "','" + ngay + "',N'" + nsx + "',N'" + khoa + "')";
             thuvien.insert(sql);
             MessageBox.Show("Thêm mới thuốc thành công!");
             load_thuoc();
+            load_cbo();
             xoa();
         }
 
         private void Thuoc_Load(object sender, EventArgs e)
         {
             load_thuoc();
+            load_cbo();
         }
 
         private void btnSua_Click(object sender, EventArgs e)
@@ -221,13 +237,16 @@ namespace HSBN.QTDT
             String sl = txtSoluong.Text.Trim();
             DateTime ngay = dateHsd.Value;
             String nsx = txtNsx.Text.Trim();
+            String khoa = cboKhoa.SelectedValue.ToString();
+
 
             if (string.IsNullOrWhiteSpace(ma) ||
                string.IsNullOrWhiteSpace(ten) ||
                 string.IsNullOrWhiteSpace(dv) ||
                 string.IsNullOrWhiteSpace(dg) ||
                 string.IsNullOrWhiteSpace(sl) ||
-                string.IsNullOrWhiteSpace(nsx))
+                string.IsNullOrWhiteSpace(nsx) ||
+                string.IsNullOrWhiteSpace(khoa))
             {
                 MessageBox.Show("Vui lòng nhập đầy đủ thông tin");
                 return;
@@ -239,11 +258,13 @@ namespace HSBN.QTDT
              "', SoLuong = '" + sl +
              "', HanSuDung = '" + ngay +
              "', NhaSanXuat = N'" + nsx +
+             "', MaKhoa = N'" + khoa +
              "' WHERE MaThuoc = '" + ma + "'";
 
             thuvien.insert(sql);
             MessageBox.Show("Cập nhật thuốc thành công!");
             load_thuoc();
+            load_cbo();
             xoa();
         }
 
@@ -254,6 +275,7 @@ namespace HSBN.QTDT
             thuvien.insert(sql);
             MessageBox.Show("Xoá thuốc thành công!");
             load_thuoc();
+            load_cbo();
             xoa();
         }
 
@@ -267,6 +289,7 @@ namespace HSBN.QTDT
             txtSoluong.Text = dataGridView1.Rows[i].Cells[4].Value.ToString();
             dateHsd.Value = DateTime.Parse(dataGridView1.Rows[i].Cells[5].Value.ToString());
             txtNsx.Text = dataGridView1.Rows[i].Cells[6].Value.ToString();
+            cboKhoa.SelectedValue = dataGridView1.Rows[i].Cells[7].Value.ToString();
             txtMathuoc.Enabled = false;
         }
 
@@ -274,31 +297,71 @@ namespace HSBN.QTDT
         {
             String ma = txtMathuoctk.Text.Trim();
             String ten = txtTenthuoctk.Text.Trim();
-            String dg = txtDongiatk.Text.Trim();
+            String khoa;
+            if (cboKhoatk.SelectedItem == null)
+            {
+                khoa = "";
+            }
+            else
+            {
+                khoa = cboKhoatk.SelectedValue.ToString();
+            }
             String nsx = txtNsxtk.Text.Trim();
 
-            string sql = "Select * From Thuoc Where MaThuoc like '%" + ma + "%' and" +
-                " TenThuoc like N'%" + ten + "%' and" +
-                " DonGia like '%" + dg + "%' and" +
-                " NhaSanXuat like N'%" + nsx + "%'";
+            string sql = "SELECT * FROM Thuoc WHERE " +
+                         "MaThuoc LIKE '%" + ma + "%' AND " +
+                         "TenThuoc LIKE N'%" + ten + "%' AND " +
+                         "MaKhoa LIKE '%" + khoa + "%' AND " +
+                         "NhaSanXuat LIKE N'%" + nsx + "%'";
 
             thuvien.load(dataGridView1, sql);
+            load_cbo();
             xoa();
+
         }
 
         private void btbXuatexcel_Click(object sender, EventArgs e)
         {
-            String ma = txtMathuoctk.Text.Trim();
-            String ten = txtTenthuoctk.Text.Trim();
-            String dg = txtDongiatk.Text.Trim();
-            String nsx = txtNsxtk.Text.Trim();
+            //String ma = txtMathuoctk.Text.Trim();
+            //String ten = txtTenthuoctk.Text.Trim();
+            //String dg = txtDongiatk.Text.Trim();
+            //String nsx = txtNsxtk.Text.Trim();
 
-            string sql = "Select * From Thuoc Where MaThuoc like '%" + ma + "%' and" +
-                " TenThuoc like N'%" + ten + "%' and" +
-                " DonGia like '%" + dg + "%' and" +
-                " NhaSanXuat like N'%" + nsx + "%'";
+            //string sql = "Select * From Thuoc Where MaThuoc like '%" + ma + "%' and" +
+            //    " TenThuoc like N'%" + ten + "%' and" +
+            //    " DonGia like '%" + dg + "%' and" +
+            //    " NhaSanXuat like N'%" + nsx + "%'";
+            //DataTable tb = new DataTable();
+            //thuvien.excel(tb, sql);
+            //ExportExcel(tb, "DSTHUOC");
+
             DataTable tb = new DataTable();
-            thuvien.excel(tb, sql);
+            //thuvien.excel(tb, sql);
+            // Tạo các cột từ DataGridView
+            foreach (DataGridViewColumn column in dataGridView1.Columns)
+            {
+                tb.Columns.Add(column.HeaderText);
+            }
+
+            // Lấy dữ liệu từ DataGridView
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                if (!row.IsNewRow)
+                {
+                    DataRow dRow = tb.NewRow();
+                    for (int i = 0; i < dataGridView1.Columns.Count; i++)
+                    {
+                        dRow[i] = row.Cells[i].Value;
+                    }
+                    tb.Rows.Add(dRow);
+                }
+            }
+
+            if (tb.Rows.Count == 0)
+            {
+                MessageBox.Show("Không có dữ liệu để xuất Excel!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             ExportExcel(tb, "DSTHUOC");
         }
 
@@ -335,7 +398,8 @@ namespace HSBN.QTDT
                                 Convert.ToString(wsheet.Cells[i, 4].Value),
                                 Convert.ToString(wsheet.Cells[i, 5].Value),
                                 Convert.ToString(wsheet.Cells[i, 6].Value),
-                                Convert.ToString(wsheet.Cells[i, 7].Value)
+                                Convert.ToString(wsheet.Cells[i, 7].Value),
+                                Convert.ToString(wsheet.Cells[i, 8].Value)
                                 );
                             i++;
                         }
@@ -345,9 +409,9 @@ namespace HSBN.QTDT
             }
         }
 
-        private void thuochaha(string ma, string ten, string dv, string dg, string sl, string ngay, string nsx)
+        private void thuochaha(string ma, string ten, string dv, string dg, string sl, string ngay, string nsx, string khoa)
         {
-            string sql = "Insert Thuoc Values('" + ma + "',N'" + ten + "',N'" + dv + "','" + dg + "','" + sl + "','" + ngay + "',N'" + nsx + "')";
+            string sql = "Insert Thuoc Values('" + ma + "',N'" + ten + "',N'" + dv + "','" + dg + "','" + sl + "','" + ngay + "',N'" + nsx + "',N'" + khoa + "')";
             thuvien.insert(sql);
 
         }

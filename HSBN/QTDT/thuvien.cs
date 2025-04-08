@@ -78,5 +78,19 @@ namespace HSBN.QTDT
             cbo.DisplayMember = cothienthi; //  hien thi ten tren man hinh 
             cbo.ValueMember = cotgiatri;
         }
+
+        public static DataTable docdulieu(string sql)
+        {
+            if (thuvien.con.State == ConnectionState.Closed)
+                thuvien.con.Open();
+
+            SqlCommand cmd = new SqlCommand(sql, thuvien.con);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            cmd.Dispose();
+            thuvien.con.Close();
+            return dt;
+        }
     }
 }
