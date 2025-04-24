@@ -49,6 +49,14 @@
             this.txtSoNgayNhapVien = new System.Windows.Forms.NumericUpDown();
             this.label14 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ngày = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtSoLuongThuoc)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -102,6 +110,7 @@
             this.txtSoLuongThuoc.Name = "txtSoLuongThuoc";
             this.txtSoLuongThuoc.Size = new System.Drawing.Size(210, 21);
             this.txtSoLuongThuoc.TabIndex = 91;
+            this.txtSoLuongThuoc.ValueChanged += new System.EventHandler(this.txtSoLuongThuoc_ValueChanged);
             // 
             // label1
             // 
@@ -180,6 +189,13 @@
             // dataGRVDieuTri
             // 
             this.dataGRVDieuTri.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGRVDieuTri.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2,
+            this.Ngày,
+            this.Column3,
+            this.Column4,
+            this.Column5});
             this.dataGRVDieuTri.Location = new System.Drawing.Point(0, 17);
             this.dataGRVDieuTri.Margin = new System.Windows.Forms.Padding(2);
             this.dataGRVDieuTri.Name = "dataGRVDieuTri";
@@ -284,12 +300,80 @@
             this.label10.TabIndex = 88;
             this.label10.Text = "Số Ngày Nhập  Viện:";
             // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "MaBenhNhan";
+            this.Column1.HeaderText = "Mã bệnh nhân";
+            this.Column1.Name = "Column1";
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "SoNgayNhapVien";
+            this.Column2.HeaderText = "Số ngày nhập viện";
+            this.Column2.Name = "Column2";
+            // 
+            // Ngày
+            // 
+            this.Ngày.DataPropertyName = "Ngay";
+            this.Ngày.HeaderText = "Ngày";
+            this.Ngày.Name = "Ngày";
+            // 
+            // Column3
+            // 
+            this.Column3.DataPropertyName = "TenThuoc";
+            this.Column3.HeaderText = "Tên thuốc";
+            this.Column3.Name = "Column3";
+            // 
+            // Column4
+            // 
+            this.Column4.DataPropertyName = "SoLuongThuoc";
+            this.Column4.HeaderText = "Số lượng";
+            this.Column4.Name = "Column4";
+            // 
+            // Column5
+            // 
+            this.Column5.DataPropertyName = "ThanhTien";
+            this.Column5.HeaderText = "Thành tiền";
+            this.Column5.Name = "Column5";
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.Black;
+            this.button1.Location = new System.Drawing.Point(280, 437);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(135, 41);
+            this.button1.TabIndex = 109;
+            this.button1.Text = "Sửa";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.Color.Black;
+            this.button2.Location = new System.Drawing.Point(454, 437);
+            this.button2.Margin = new System.Windows.Forms.Padding(2);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(135, 41);
+            this.button2.TabIndex = 110;
+            this.button2.Text = "Xoá";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // Xetthuoc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MediumTurquoise;
             this.ClientSize = new System.Drawing.Size(1071, 559);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.Toon);
             this.Controls.Add(this.txtTongTienThuoc);
             this.Controls.Add(this.groupBox3);
@@ -335,5 +419,13 @@
         private System.Windows.Forms.NumericUpDown txtSoNgayNhapVien;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Ngày;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
     }
 }
