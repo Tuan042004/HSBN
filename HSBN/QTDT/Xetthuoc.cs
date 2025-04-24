@@ -38,6 +38,8 @@ namespace HSBN.QTDT
         {
             loadGRVDieuTri();
             load_cbo();
+            txtSoNgayNhapVien.Enabled = false;
+            txtChanDoan.Enabled = false;
         }
 
         private void cboKhoa_SelectedIndexChanged(object sender, EventArgs e)
@@ -45,7 +47,7 @@ namespace HSBN.QTDT
             // Lấy TenKhoa để lọc bệnh nhân theo khoa
             string tenKhoa = cboKhoa.Text;
             string sql = "SELECT * FROM QuaTrinhDieuTri WHERE TenKhoa = N'" + tenKhoa + "'";
-            thuvien.cbo(cboBenhnhan, sql, "TenBenhNhan", "MaBenhNhan");
+            thuvien.cbo(cboBenhnhan, sql, "MaBenhNhan", "MaBenhNhan");
 
             // Lấy MaKhoa để lọc thuốc theo khoa
             if (cboKhoa.SelectedValue == null || cboKhoa.SelectedValue.ToString() == "System.Data.DataRowView")
@@ -88,8 +90,8 @@ namespace HSBN.QTDT
                 string tenBenhNhan = cboBenhnhan.Text;
 
                 // Sử dụng SqlCommand với tham số để tránh SQL Injection
-                SqlCommand cmd = new SqlCommand("SELECT SoNgayNhapVien, ChanDoanDieuTri FROM QuaTrinhDieuTri WHERE TenBenhNhan = @TenBenhNhan", con);
-                cmd.Parameters.AddWithValue("@TenBenhNhan", tenBenhNhan);
+                SqlCommand cmd = new SqlCommand("SELECT SoNgayNhapVien, ChanDoanDieuTri FROM QuaTrinhDieuTri WHERE MaBenhNhan = @MaBenhNhan", con);
+                cmd.Parameters.AddWithValue("@MaBenhNhan", tenBenhNhan);
 
                 SqlDataReader reader = cmd.ExecuteReader();
 
@@ -147,7 +149,7 @@ namespace HSBN.QTDT
 
         private void loadGRVDieuTri()
         {
-            string sql = "select * from DieuTri order by TenBenhNhan asc";
+            string sql = "select * from DieuTri order by MaBenhNhan asc";
             thuvien.load(dataGRVDieuTri, sql);
         }
 
@@ -156,23 +158,23 @@ namespace HSBN.QTDT
             if (e.ColumnIndex >= 0 && e.RowIndex >= 0)
             {
                 DataGridViewRow row = dataGRVDieuTri.CurrentRow;
-                if (row.Cells["TenBenhNhan"].Value.ToString() == string.Empty)
+                if (row.Cells["Column1"].Value.ToString() == string.Empty)
                 {
                     _resert();
                 }
 
-                cboBenhnhan.Text = row.Cells["TenBenhNhan"].Value.ToString();
-                txtSoNgayNhapVien.Text = row.Cells["SoNgayNhapVien"].Value.ToString();
+                cboBenhnhan.Text = row.Cells["Column1"].Value.ToString();
+                txtSoNgayNhapVien.Text = row.Cells["Column2"].Value.ToString();
 
                 con.Open();
-                SqlCommand cmd = new SqlCommand("select ChanDoanDieuTri from QuaTrinhDieuTri where TenBenhNhan = '" + cboBenhnhan.Text + "'", con);
+                SqlCommand cmd = new SqlCommand("select ChanDoanDieuTri from QuaTrinhDieuTri where MaBenhNhan = '" + cboBenhnhan.Text + "'", con);
                 string ChuanDoanSoBo = (string)cmd.ExecuteScalar(); // Truy vấn dữ liệu và lấy giá trị trả về 
                 txtChanDoan.Text = ChuanDoanSoBo; // Gán giá trị tên vào thuộc tính Text của textbox để hiển thị
                 con.Close();
 
-                cbbNgay.Text = row.Cells["Ngay"].Value.ToString();
-                cbbThuoc.Text = row.Cells["TenThuoc"].Value.ToString();
-                txtSoLuongThuoc.Text = row.Cells["SoLuongThuoc"].Value.ToString();
+                cbbNgay.Text = row.Cells["Ngày"].Value.ToString();
+                cbbThuoc.Text = row.Cells["Column3"].Value.ToString();
+                txtSoLuongThuoc.Text = row.Cells["Column4"].Value.ToString();
 
                 loadGRVDieuTri();
             }
@@ -207,10 +209,10 @@ namespace HSBN.QTDT
                 float giaTienThuoc = donGia * soLuong;
 
                 // Thêm dữ liệu vào bảng DieuTri
-                string queryInsert = "INSERT INTO DieuTri (TenBenhNhan, SoNgayNhapVien, Ngay, TenThuoc, SoLuongThuoc, ThanhTien) " +
-                                     "VALUES (@TenBenhNhan, @SoNgayNhapVien, @Ngay, @TenThuoc, @SoLuongThuoc, @ThanhTien)";
+                string queryInsert = "INSERT INTO DieuTri (MaBenhNhan, SoNgayNhapVien, Ngay, TenThuoc, SoLuongThuoc, ThanhTien) " +
+                                     "VALUES (@MaBenhNhan, @SoNgayNhapVien, @Ngay, @TenThuoc, @SoLuongThuoc, @ThanhTien)";
                 cmd = new SqlCommand(queryInsert, con);
-                cmd.Parameters.AddWithValue("@TenBenhNhan", cboBenhnhan.Text);
+                cmd.Parameters.AddWithValue("@MaBenhNhan", cboBenhnhan.Text);
                 cmd.Parameters.AddWithValue("@SoNgayNhapVien", txtSoNgayNhapVien.Text);
                 cmd.Parameters.AddWithValue("@Ngay", cbbNgay.Text);
                 cmd.Parameters.AddWithValue("@TenThuoc", cbbThuoc.Text);
@@ -262,9 +264,9 @@ namespace HSBN.QTDT
                 if (con.State == ConnectionState.Closed)
                     con.Open();
 
-                string query = "SELECT SUM(ThanhTien) FROM DieuTri WHERE TenBenhNhan = @TenBenhNhan";
+                string query = "SELECT SUM(ThanhTien) FROM DieuTri WHERE MaBenhNhan = @MaBenhNhan";
                 SqlCommand cmd = new SqlCommand(query, con);
-                cmd.Parameters.AddWithValue("@TenBenhNhan", cboBenhnhan.Text);
+                cmd.Parameters.AddWithValue("@MaBenhNhan", cboBenhnhan.Text);
 
                 object result = cmd.ExecuteScalar();
                 float tongGiaTien = 0;
@@ -285,6 +287,105 @@ namespace HSBN.QTDT
                 if (con.State == ConnectionState.Open)
                     con.Close();
             }
+        }
+
+        private void txtSoLuongThuoc_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (cboBenhnhan.Text == "" || cbbNgay.Text == "" || cbbThuoc.Text == "" || txtSoLuongThuoc.Text == "")
+            {
+                MessageBox.Show("Vui lòng nhập đủ thông tin !", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            try
+            {
+                con.Open();
+
+                // Lấy đơn giá thuốc
+                string queryGiaTien = "SELECT DonGia FROM Thuoc WHERE TenThuoc = @TenThuoc";
+                SqlCommand cmd = new SqlCommand(queryGiaTien, con);
+                cmd.Parameters.AddWithValue("@TenThuoc", cbbThuoc.Text.Trim());
+
+                object result = cmd.ExecuteScalar();
+                if (result == null || result == DBNull.Value)
+                {
+                    MessageBox.Show("Không tìm thấy giá thuốc!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                float donGia = Convert.ToSingle(result);
+                int soLuong = Convert.ToInt32(txtSoLuongThuoc.Text);
+                float giaTienThuoc = donGia * soLuong;
+
+                // Cập nhật dữ liệu trong bảng DieuTri
+                string queryUpdate = "UPDATE DieuTri " +
+                                     "SET SoNgayNhapVien = @SoNgayNhapVien, " +
+                                     "    TenThuoc = @TenThuoc, " +
+                                     "    SoLuongThuoc = @SoLuongThuoc, " +
+                                     "    ThanhTien = @ThanhTien " +
+                                     "WHERE MaBenhNhan = @MaBenhNhan AND Ngay = @Ngay";
+
+                cmd = new SqlCommand(queryUpdate, con);
+                cmd.Parameters.AddWithValue("@MaBenhNhan", cboBenhnhan.Text);
+                cmd.Parameters.AddWithValue("@SoNgayNhapVien", txtSoNgayNhapVien.Text);
+                cmd.Parameters.AddWithValue("@Ngay", cbbNgay.Text);
+                cmd.Parameters.AddWithValue("@TenThuoc", cbbThuoc.Text);
+                cmd.Parameters.AddWithValue("@SoLuongThuoc", soLuong);
+                cmd.Parameters.AddWithValue("@ThanhTien", giaTienThuoc);
+                cmd.ExecuteNonQuery();
+
+                MessageBox.Show("Cập nhật cấp thuốc thành công!", "Thông báo");
+
+
+                // --> Sau đó cập nhật tồn kho
+                string queryUpdateThuoc = "UPDATE Thuoc SET SoLuong = SoLuong - @soluong WHERE TenThuoc = @tenthuoc";
+                SqlCommand cmdUpdate = new SqlCommand(queryUpdateThuoc, con);
+                cmdUpdate.Parameters.AddWithValue("@soluong", Convert.ToInt32(txtSoLuongThuoc.Text));
+                cmdUpdate.Parameters.AddWithValue("@tenthuoc", cbbThuoc.Text);
+                cmdUpdate.ExecuteNonQuery();
+
+                string checkQty = "SELECT SoLuong FROM Thuoc WHERE TenThuoc = @tenthuoc";
+                SqlCommand cmdCheck = new SqlCommand(checkQty, con);
+                cmdCheck.Parameters.AddWithValue("@tenthuoc", cbbThuoc.Text);
+                int soLuongHienTai = Convert.ToInt32(cmdCheck.ExecuteScalar());
+
+                int soLuongMuonCap = Convert.ToInt32(txtSoLuongThuoc.Text);
+
+                if (soLuongHienTai < soLuongMuonCap)
+                {
+                    MessageBox.Show("Không đủ thuốc trong kho!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    con.Close();
+                    return;
+                }
+
+
+                loadGRVDieuTri();
+                TongTienThuoc();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message);
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            String ma = cboBenhnhan.SelectedValue.ToString();
+            string sql = "DELETE FROM DieuTri WHERE MaBenhNhan = '" + ma + "'";
+            thuvien.insert(sql);
+            MessageBox.Show("Xoá thành công!");
+            loadGRVDieuTri();
+            load_cbo();
+
         }
     }
 }

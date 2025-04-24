@@ -23,8 +23,9 @@ namespace HSBN.QTDT
         {
             txtMadt.Text = "";
             txtChandoan.Text = "";
-            txtPhuongphap.Text = "";
-            
+            txtSongaynv.Text = "";
+            txtGioitinh.Text = "";
+            txtLydokham.Text = "";
             txtMadt.Enabled = true;
         }
         private void load_qtdt()
@@ -42,10 +43,12 @@ namespace HSBN.QTDT
             string sql2 = "Select * From BenhNhan";
             string sql3 = "Select * From NhanVienYTe";
             string sql4 = "Select * From PhongBenh";
+            string sql5 = "Select * From DichVu";
             thuvien.cbo(cboKhoa, sql, "TenKhoa", "MaKhoa");
             thuvien.cbo(cboBenhnhan, sql2, "HoTenBenhNhan", "MaBenhNhan");
             thuvien.cbo(cboBacsi, sql3, "BacSiDieuTri", "MaNhanVien");
             thuvien.cbo(cboPhong, sql4, "TenPhong", "MaPhong");
+            thuvien.cbo(cbopp, sql5, "TenDichVu", "TenDichVu");
         }
 
         private void load_Benhnhan()
@@ -89,7 +92,7 @@ namespace HSBN.QTDT
             String bs = cboBacsi.SelectedValue.ToString();
             DateTime ngay = dateNgaydt.Value;
             String cd = txtChandoan.Text.Trim();
-            String pp = txtPhuongphap.Text.Trim();
+            String pp = cbopp.SelectedValue.ToString();
             String songay = txtSongaynv.Text.Trim();
             String khoa = cboKhoa.SelectedValue.ToString();
             String tenkhoa = txtTenkhoa.Text.Trim();
@@ -128,7 +131,14 @@ namespace HSBN.QTDT
             load_qtdt();
             load_Benhnhan();
             load_cbo();
-
+            txtTenbn.Enabled = false;
+            txtLydokham.Enabled = false;
+            txtGioitinh.Enabled = false;
+            cboBenhnhan.Enabled = false;
+            dateNgaysinh.Enabled = false;
+            cboPhong.Enabled = false;
+            txtTenkhoa.Enabled = false;
+            txtTenbn.Enabled = false;
         }
 
         private void btnSua_Click(object sender, EventArgs e)
@@ -139,7 +149,7 @@ namespace HSBN.QTDT
             String bs = cboBacsi.SelectedValue.ToString();
             DateTime ngay = dateNgaydt.Value;
             String cd = txtChandoan.Text.Trim();
-            String pp = txtPhuongphap.Text.Trim();
+            String pp = cbopp.SelectedValue.ToString();
             String songay = txtSongaynv.Text.Trim();
             String khoa = cboKhoa.SelectedValue.ToString();
             String tenkhoa = txtTenkhoa.Text.Trim();
@@ -192,11 +202,11 @@ namespace HSBN.QTDT
             int i = e.RowIndex;
             txtMadt.Text = dataGridView1.Rows[i].Cells[0].Value.ToString();
             cboBenhnhan.SelectedValue = dataGridView1.Rows[i].Cells[1].Value.ToString();
-            txtTenbn.Text = txtMadt.Text = dataGridView1.Rows[i].Cells[2].Value.ToString();
+            txtTenbn.Text = dataGridView1.Rows[i].Cells[2].Value.ToString();
             cboBacsi.SelectedValue = dataGridView1.Rows[i].Cells[3].Value.ToString();
             dateNgaydt.Value = DateTime.Parse(dataGridView1.Rows[i].Cells[4].Value.ToString());
             txtChandoan.Text = dataGridView1.Rows[i].Cells[5].Value.ToString();
-            txtPhuongphap.Text = dataGridView1.Rows[i].Cells[6].Value.ToString();
+            cbopp.SelectedValue = dataGridView1.Rows[i].Cells[6].Value.ToString();
             txtSongaynv.Text = dataGridView1.Rows[i].Cells[7].Value.ToString();
             cboKhoa.SelectedValue = dataGridView1.Rows[i].Cells[8].Value.ToString();
             txtTenkhoa.Text = dataGridView1.Rows[i].Cells[9].Value.ToString();
